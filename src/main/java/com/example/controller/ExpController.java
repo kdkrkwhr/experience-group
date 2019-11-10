@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.repository.NoticeRepository;
 
 @Controller
-@RequestMapping("/board")
-public class NoticeController {
+@RequestMapping("/experience")
+public class ExpController {
 
 	static final String SUCCESS = "SUCCESS";
 	static final String NO_VALUE_ERROR = "NO VALUE";
@@ -18,6 +18,11 @@ public class NoticeController {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
+	/**
+	 * 메인 화면 컨트롤러
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model) {
 		System.out.println("ogkegjeieigjeogjeogjegjeogjoegoj");
@@ -27,7 +32,12 @@ public class NoticeController {
 		return "test";
 	}
 
-	@RequestMapping(value = "/notice", method = RequestMethod.GET)
+	/**
+	 * 체험단 신청하기 화면 컨트롤러
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/experience", method = RequestMethod.GET)
 	public String noticeList(Model model) {
 		System.out.println("ogkegjeieigjeogjeogjegjeogjoegoj");
 		int asdf = noticeRepository.test();
@@ -35,5 +45,4 @@ public class NoticeController {
 		model.addAttribute("test", asdf);
 		return "test";
 	}
-	
 }
