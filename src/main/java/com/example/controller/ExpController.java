@@ -14,6 +14,7 @@ public class ExpController {
 
 	/**
 	 * 메인 화면 컨트롤러
+	 * 최신 순으로 정렬하여 보여준다.
 	 * @param model
 	 * @return
 	 */
@@ -25,6 +26,7 @@ public class ExpController {
 
 	/**
 	 * 체험단 신청하기 화면 컨트롤러
+	 * 최신 순으로 정렬하여 보여준다.
 	 * @param model
 	 * @return
 	 */
