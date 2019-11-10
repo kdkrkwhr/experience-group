@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ExpController {
 
-	static final String SUCCESS = "SUCCESS";
-	static final String NO_VALUE_ERROR = "NO VALUE";
 	private static final Logger log = LoggerFactory.getLogger(ExpController.class);
-
 
 	/**
 	 * 메인 화면 컨트롤러
