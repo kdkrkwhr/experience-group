@@ -24,18 +24,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Bottom Footer Area -->
-	<div class="bottom-footer-area d-flex justify-content-between align-items-center">
-
-		<!-- Follow Us -->
-		<div class="follow-us">
-			<span>Follow us</span> <a href="#" class="common-sns"><i class="fa fa-facebook"
-				aria-hidden="true"></i></a> <a href="#" class="common-sns"><i class="fa fa-instagram"
-				aria-hidden="true"></i></a> <a href="#" class="common-sns"><i class="fa fa-twitter"
-				aria-hidden="true"></i></a>
-		</div>
-	</div>
 </footer>
 <!-- ##### All Javascript Script ##### -->
 <!-- All Plugins js -->
