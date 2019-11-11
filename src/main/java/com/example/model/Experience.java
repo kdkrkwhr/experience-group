@@ -20,7 +20,7 @@ public class Experience {
 	// 글번호
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int board_no;
+	private int boardNo;
 
 	// 글 제목
 	private String subject;
@@ -29,16 +29,16 @@ public class Experience {
 	private String type;
 	
 	// 신청인원
-	private int appli_cnt;
+	private int appliCnt;
 	
 	// 모집인원
-	private int recrut_cnt;
+	private int recrutCnt;
 	
 	// 등록일
-	private String reg_date;
+	private String regDate;
 	
 	// 상품명
-	private String prd_name;
+	private String prdName;
 	
 	// 글 내용
 	@Column(length = 100000000)
@@ -49,10 +49,10 @@ public class Experience {
 
 		this.subject	= subject;
 		this.type		= type;
-		this.appli_cnt	= appli_cnt;
-		this.recrut_cnt	= recrut_cnt;
-		this.reg_date	= reg_date;
-		this.prd_name	= prd_name;
+		this.appliCnt	= appli_cnt;
+		this.recrutCnt	= recrut_cnt;
+		this.regDate	= reg_date;
+		this.prdName	= prd_name;
 		this.content	= content;
 	}
 }
