@@ -8,8 +8,6 @@
 				<div class="col-12">
 					<!-- Footer Logo -->
 					<div class="footer-logo">
-						<a href="#"><img src="/resources/img/core-img/k_logo2.png"
-							alt=""></a>
 					</div>
 					<!-- Copywrite -->
 					<p>

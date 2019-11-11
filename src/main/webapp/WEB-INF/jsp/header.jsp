@@ -11,11 +11,11 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Title -->
-<title>Study Meeting</title>
+<title>체험단 신청</title>
 <!-- Favicon -->
-<link rel="icon" href="/resources/img/core-img/k_logo2.png">
 <!-- Stylesheet -->
 <link rel="stylesheet" href="/resources/style.css">
+
 <!-- jQuery-2.2.4 js -->
 <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
 <!-- Popper js -->
