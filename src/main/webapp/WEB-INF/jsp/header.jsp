@@ -15,7 +15,6 @@
 <!-- Favicon -->
 <!-- Stylesheet -->
 <link rel="stylesheet" href="/resources/style.css">
-
 <!-- jQuery-2.2.4 js -->
 <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
 <!-- Popper js -->

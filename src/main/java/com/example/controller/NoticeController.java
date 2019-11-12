@@ -3,6 +3,8 @@ package com.example.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ import com.example.repository.NoticeRepository;
 @RequestMapping("/notice")
 public class NoticeController {
 
+	private static final Logger log = LoggerFactory.getLogger(NoticeController.class);
+
 	static final String SUCCESS = "SUCCESS";
 	static final String NO_VALUE_ERROR = "NO VALUE";
 
@@ -29,9 +33,11 @@ public class NoticeController {
 	// 공지사항 리스트
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String main(Model model) {
+		log.info("NOTICE LIST");
 		try {
-			List<Notice> noticeList = noticeRepository.findAll();
-			model.addAttribute("list",noticeList);
+			List<Notice> noticeList = noticeRepository.noticeAllList();
+			log.info("LIST : {}", noticeList.get(0).getContent());
+			model.addAttribute("list", noticeList);
 		} catch(Exception e) {
 			return e.getMessage();
 		}
