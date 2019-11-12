@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Null;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,7 +29,6 @@ public class Notice {
 
 	private String regDate;
 
-	@Column(insertable=false, updatable=false)
 	private int fileNo;
 
 	@Builder

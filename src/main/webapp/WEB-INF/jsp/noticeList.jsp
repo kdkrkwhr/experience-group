@@ -5,21 +5,15 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
-<script src="/resources/js/use/boardList.js"></script>
+<script src="/resources/js/use/noticeList.js"></script>
 <!-- ##### Catagory ##### -->
-<div
-	class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3">
+<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3">
 	<div class="container">
 		<div class="col-12">
 			<h3>이용방법 안내</h3>
 		</div>
 		<div class="col-12">
 			<h6>체험단 신청하기 버튼을 통해 쉽고 빠르게 접수해보세요.</h6>
-		</div>
-		<div class="col-2">
-			<div class="load-more text-center wow fadeInUp" data-wow-delay="50ms">
-				<a href="/experience/board" class="btn clever-btn btn-2">신청하러 가기</a>
-			</div>
 		</div>
 	</div>
 </div>
@@ -33,43 +27,26 @@
 				<div class="row-t header">
 					<div class="cell">번호</div>
 					<div class="cell">제목</div>
-					<div class="cell">내용</div>
-					<div class="cell">작성일</div>
+					<div class="cell">등록일</div>
+					<div class="cell"></div>
 				</div>
 
-				<div class="row-t">
-					<div class="cell" data-title="Full Name">1</div>
-					<div class="cell" data-title="Age">공지사항 제목 테스트</div>
-					<div class="cell" data-title="Job Title">공지사항 내용 테스트</div>
-					<div class="cell" data-title="Location">2019-11-04 08:49:33</div>
-				</div>
+				<c:forEach var="list" items="${list }">
 
-				<div class="row-t">
-					<div class="cell" data-title="Full Name">2</div>
-					<div class="cell" data-title="Age">공지사항 제목 테스트2</div>
-					<div class="cell" data-title="Job Title">공지사항 내용테스트2</div>
-					<div class="cell" data-title="Location">2019-11-04 08:49:33</div>
-				</div>
+					<div class="row-t">
+						<div class="cell" data-title="번호"><span onclick="noticeViewAction(${list.noticeNo })">${list.noticeNo }</span></div>
+						<div class="cell" data-title="제목"><strong>[공지] ${list.subject }</strong></div>
+						<div class="cell" data-title="등록일"><strong>${list.regDate }</strong></div>
+						<div class="cell" data-title=""><span onclick = "noticeDeleteAction(${list.noticeNo })"><strong>삭제</strong></span></div>
+					</div>
 
-				<div class="row-t">
-					<div class="cell" data-title="Full Name">3</div>
-					<div class="cell" data-title="Age">공지사항 제목 테스트3</div>
-					<div class="cell" data-title="Job Title">공지사항 내용테스트3</div>
-					<div class="cell" data-title="Location">2019-11-04 08:49:33</div>
-				</div>
+				</c:forEach>
 
-				<div class="row-t">
-					<div class="cell" data-title="Full Name">4</div>
-					<div class="cell" data-title="Age">공지사항 제목 테스트4</div>
-					<div class="cell" data-title="Job Title">공지사항 내용테스트4</div>
-					<div class="cell" data-title="Location">2019-11-04 08:49:33</div>
-				</div>
-
-				<div class="row-t">
-					<div class="cell" data-title="Full Name">5</div>
-					<div class="cell" data-title="Age">공지사항 제목 테스트5</div>
-					<div class="cell" data-title="Job Title">공지사항 내용테스트5</div>
-					<div class="cell" data-title="Location">2019-11-04 08:49:33</div>
+			</div>
+			<hr/>
+			<div class="col-2">
+				<div class="load-more">
+					<a href="/notice/new" class="btn clever-btn">공지사항 등록</a>
 				</div>
 			</div>
 		</div>

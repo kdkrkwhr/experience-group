@@ -13,7 +13,7 @@ public interface NoticeRepository extends JpaRepository<Notice, Integer>  {
 	
 	String noticeAllListQuery = 
 			"SELECT "
-			+ "notice_no, subject, content, reg_date, file_no "
+			+ "notice_no, subject, content, reg_date, file_no  "
 			+ "FROM notice";
 
 	@Query(value = noticeAllListQuery, nativeQuery = true)

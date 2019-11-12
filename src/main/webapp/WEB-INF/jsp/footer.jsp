@@ -10,6 +10,7 @@
 					<div class="footer-logo">
 					</div>
 					<!-- Copywrite -->
+					<p><a href="#">관리자 로그인</a></p>
 					<p>
 						<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;<script>

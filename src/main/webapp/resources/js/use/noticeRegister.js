@@ -1,5 +1,5 @@
 /**
- * BOARD REGISTER
+ * NOTICE REGISTER
  */
 
 $().ready(function() {
@@ -17,23 +17,23 @@ $().ready(function() {
 	});
 
 	$('.note-icon-trash').trigger('click');
-	
+
+	$('.note-insert').remove();
+	$('.note-view').remove();
+
 	$('#registerBtn').click(function() {
 		$.ajax({
 			method : "POST",
-			url : pageUrl + "board/api/register",
+			url : pageUrl + "notice/api/register",
 			data : JSON.stringify({
 				subject : $('#subject').val(),
 				content : $('#content').val(),
-				boardCat : $('#boardCat').val(),
-				memberNo : $('#memberNo').val(),
-				totalPersonCnt : $('select[name=totalPersonCnt]').val(),
-				communication : $('#communication').val()
+				fileNo : 0
 			}),
 			contentType : "application/json; charset=utf-8",
 			success : function() {
-				alert("게시물이 등록 되었습니다.");
-				location.href = "/board/" + $('#boardCat').val();
+				alert("공지사항이 등록 되었습니다.");
+				location.href = "/notice/list";
 			}
 		});
 	});

@@ -50,21 +50,18 @@ public class NoticeController {
 		try {
 			Notice notice = noticeRepository.findById(idx).get();
 			model.addAttribute("notice", notice);
+			model.addAttribute("cat", "공지사항 상세");
+			model.addAttribute("btnCat", "수정");
 		} catch(Exception e) {
 			return e.getMessage();
 		}
-		return "noticeDetail";
+		return "noticeRegister";
 	}
 
 	// 공지사항 등록
-	@RequestMapping(value="/add", method=RequestMethod.POST)
+	@RequestMapping(value="/api/register", method=RequestMethod.POST)
 	public ResponseEntity<String> noticeAdd(@RequestBody Notice reqNotice) {
-		if (reqNotice == null) {
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);			
-		}
-
 		try {
-
 			LocalDateTime date = LocalDateTime.now();
 			noticeRepository.save(
 					Notice.builder()
@@ -73,23 +70,20 @@ public class NoticeController {
 					.regDate(date.toString())
 					.fileNo(reqNotice.getFileNo())
 					.build());
-
 		} catch(Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
-
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	// 공지사항 수정
 	@RequestMapping(value="/update/{idx}", method = RequestMethod.PUT)
 	public ResponseEntity<String> noticeUpdate(@PathVariable("idx") int idx) {
-
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	// 공지사항 삭제
-	@RequestMapping(value="/delete/{idx}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/api/delete/{idx}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> noticceDelete(@PathVariable("idx") int idx) {
 		try {
 			noticeRepository.deleteById(idx);
@@ -97,5 +91,14 @@ public class NoticeController {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
+	// 공지사항 등록 페이지
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public String registerPage(Model model) {
+		log.info("NOTICE REGISTER PAGE");
+		model.addAttribute("cat", "공지사항 등록");
+		model.addAttribute("btnCat", "등록");
+		return "noticeRegister";
 	}
 }
