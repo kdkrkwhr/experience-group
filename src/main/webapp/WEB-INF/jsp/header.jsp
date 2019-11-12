@@ -70,7 +70,7 @@
 							</ul>
 
 							<!-- Search Button -->
-							<div class="search-area">
+							<!-- <div class="search-area">
 								<form method="get" action="/board/search">
 									<input type="search" name="search" id="search"
 										placeholder="Search">
@@ -78,7 +78,7 @@
 										<i class="fa fa-search" aria-hidden="true"></i>
 									</button>
 								</form>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<!-- Nav End -->
