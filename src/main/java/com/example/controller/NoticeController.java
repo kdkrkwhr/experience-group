@@ -33,10 +33,8 @@ public class NoticeController {
 	// 공지사항 리스트
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String main(Model model) {
-		log.info("NOTICE LIST");
 		try {
 			List<Notice> noticeList = noticeRepository.noticeAllList();
-			log.info("LIST : {}", noticeList.get(0).getContent());
 			model.addAttribute("list", noticeList);
 		} catch(Exception e) {
 			return e.getMessage();
