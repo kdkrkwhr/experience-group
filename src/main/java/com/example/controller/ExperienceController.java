@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ExpController {
+public class ExperienceController {
 
-	private static final Logger log = LoggerFactory.getLogger(ExpController.class);
+	private static final Logger log = LoggerFactory.getLogger(ExperienceController.class);
 
 	/**
 	 * 메인 화면

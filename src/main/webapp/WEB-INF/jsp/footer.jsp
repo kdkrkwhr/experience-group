@@ -10,7 +10,12 @@
 					<div class="footer-logo">
 					</div>
 					<!-- Copywrite -->
-					<p><a href="#" data-toggle="modal" data-target="#modalLoginForm">관리자 로그인</a></p>
+					<c:if test="${empty sessionAdmin }">
+						<p><a href="#" data-toggle="modal" data-target="#modalLoginForm">관리자 로그인</a></p>
+					</c:if>
+					<c:if test="${not empty sessionAdmin }">
+						<p><a href="#" id="logOut">관리자 로그인</a></p>					
+					</c:if>
 					<p>
 						<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;<script>
@@ -39,18 +44,18 @@
       </div>
       <div class="modal-body mx-2" style="background:#73C6B6;">
         <div class="md-form mb-5">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">ID</label>
-          <input type="email" id="defaultForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">E-Mail</label>
+          <input type="text" id="adminEmail" name="adminEmail" class="form-control validate">
         </div>
 
         <div class="md-form mb-4">
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
-          <input type="password" id="defaultForm-pass" class="form-control validate">
+          <input type="password"  id="adminPassword" name="adminPassword" class="form-control validate">
         </div>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-default">Login</button>
+        <button class="btn btn-default"><strong>로그인</strong></button>
       </div>
     </div>
   </div>
