@@ -28,16 +28,27 @@
 					<div class="cell">번호</div>
 					<div class="cell">제목</div>
 					<div class="cell">등록일</div>
-					<div class="cell"></div>
+					<c:if test= "${not empty sessionAdmin }">
+						<div class="cell"></div>
+					</c:if>
 				</div>
 
 				<c:forEach var="list" items="${list }">
 
 					<div class="row-t">
-						<div class="cell" data-title="번호"><span onclick="noticeViewAction(${list.noticeNo })">${list.noticeNo }</span></div>
+						<div class="cell" data-title="번호">
+							<span 
+							<c:if test= "${not empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>
+							<c:if test= "${empty sessionAdmin }"> onclick="noticeUserViewAction(${list.noticeNo })"</c:if>>
+								${list.noticeNo }
+								
+							</span>
+						</div>
 						<div class="cell" data-title="제목"><strong>[공지] ${list.subject }</strong></div>
 						<div class="cell" data-title="등록일"><strong>${list.regDate }</strong></div>
-						<div class="cell" data-title=""><span onclick = "noticeDeleteAction(${list.noticeNo })"><strong>삭제</strong></span></div>
+						<c:if test= "${not empty sessionAdmin }">
+							<div class="cell" data-title=""><span onclick = "noticeDeleteAction(${list.noticeNo })"><strong>삭제</strong></span></div>
+						</c:if>
 					</div>
 
 				</c:forEach>
