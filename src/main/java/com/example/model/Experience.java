@@ -20,7 +20,7 @@ public class Experience {
 	// 글번호
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int boardNo;
+	private int experienceNo;
 
 	// 글 제목
 	private String subject;

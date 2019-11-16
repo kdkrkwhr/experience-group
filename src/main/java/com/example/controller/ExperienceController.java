@@ -2,23 +2,30 @@ package com.example.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.repository.ExperienceRepository;
+
 @Controller
+@RequestMapping(value = "/experience")
 public class ExperienceController {
 
 	private static final Logger log = LoggerFactory.getLogger(ExperienceController.class);
 
+	@Autowired
+	ExperienceRepository er;
 	/**
 	 * 메인 화면
 	 * 최신 순으로 정렬하여 보여준다.
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/experience", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String main(Model model) {
 		log.info("메인 화면");
 		return "index";
@@ -30,7 +37,7 @@ public class ExperienceController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/experience/board", method = RequestMethod.GET)
+	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String noticeList(Model model) {
 		log.info("체험단 신청하기 게시글 목록");
 		return "exp";
@@ -42,9 +49,14 @@ public class ExperienceController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/experience/board/applyExp", method = RequestMethod.GET)
-	public String applyExp(Model model) {
+	@RequestMapping(value = "/board/{idx}", method = RequestMethod.GET)
+	public String applyExp(@PathVariable("idx") int idx, Model model) {
 		log.info("체험단 신청하기 상세페이지");
+		try {
+			model.addAttribute("exp", er.selectOne(idx));
+		} catch (Exception e) {
+			log.error("글 정보 조회 실패");
+		}
 		model.addAttribute("cat", "체험단 신청하기");
 		return "applyExp";
 	}

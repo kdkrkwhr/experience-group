@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!-- ##### Header Area Start ##### -->
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
-
-<script src="/resources/js/use/boardList.js"></script>
-
+<script>
+	var goMenu = function(idx) {
+		location.href = "/board/" + idx;
+	}
+</script>
 <!-- ##### Breadcumb Area Start ##### -->
 <div class="breadcumb-area">
 	<!-- Breadcumb -->
@@ -30,7 +31,7 @@
 <!-- ##### Popular Course Area Start ##### -->
 <section class="popular-courses-area section-padding-100">
 	<div class="container">
-		<div class="row">
+		<div class="row" style="display:none;">
 			<div class="col-1">
 				<div class="load-more text-center wow fadeInUp"
 					data-wow-delay="50ms">
@@ -53,7 +54,7 @@
 						<!-- Course Content -->
 						<div class="course-content">
 							<h4>
-								<span style="cursor: pointer;">${board.subject }</span>
+								<span style="cursor: pointer;" onclick="javascript:goMenu(${board.experienceNo})" >${board.subject }</span>
 							</h4>
 							<div class="meta d-flex align-items-center">
 								<a href="#">${board.memberName }</a> <span><i
