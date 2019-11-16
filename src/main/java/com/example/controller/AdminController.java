@@ -27,7 +27,6 @@ public class AdminController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ResponseEntity<Boolean> adminLogin(HttpSession session, @RequestBody Admin reqAdmin) {
 		Boolean adminLoginFlag = false;
-
 		try {
 			Admin admin = adminRepository.adminLogin(reqAdmin.getAdminEmail(), reqAdmin.getAdminPassword());
 

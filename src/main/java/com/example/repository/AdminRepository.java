@@ -10,9 +10,9 @@ public interface AdminRepository extends JpaRepository<Admin, Integer>  {
 
 	String loginQuery = 
 			" SELECT " + 
-			"   admin_email, admin_password " + 
+			"   admin_no, admin_email, admin_password " + 
 			" FROM " + 
-			"   ADMIN " + 
+			"   admin " + 
 			" WHERE " + 
 			"   admin_email = :adminEmail AND admin_password = :adminPassword";
 

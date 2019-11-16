@@ -69,17 +69,6 @@
 								<li><a href="#">체험단 일정 안내</a>
 								<li><a href="/notice/list">공지사항</a></li>
 							</ul>
-
-							<!-- Search Button -->
-							<!-- <div class="search-area">
-								<form method="get" action="/board/search">
-									<input type="search" name="search" id="search"
-										placeholder="Search">
-									<button type="submit">
-										<i class="fa fa-search" aria-hidden="true"></i>
-									</button>
-								</form>
-							</div> -->
 						</div>
 					</div>
 					<!-- Nav End -->

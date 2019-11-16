@@ -4,6 +4,7 @@
 <!-- ##### Header Area Start ##### -->
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
+
 <link rel="stylesheet" href="/resources/css/main.css">
 <script src="/resources/js/use/noticeList.js"></script>
 <!-- ##### Catagory ##### -->
@@ -38,10 +39,11 @@
 					<div class="row-t">
 						<div class="cell" data-title="번호">
 							<span 
-							<c:if test= "${not empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>
+							<c:if test= "${not empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"
+								${list.noticeNo }
+							</c:if>
 							<c:if test= "${empty sessionAdmin }"> onclick="noticeUserViewAction(${list.noticeNo })"</c:if>>
 								${list.noticeNo }
-								
 							</span>
 						</div>
 						<div class="cell" data-title="제목"><strong>[공지] ${list.subject }</strong></div>
@@ -55,11 +57,13 @@
 
 			</div>
 			<hr/>
-			<div class="col-2">
-				<div class="load-more">
-					<a href="/notice/new" class="btn clever-btn">공지사항 등록</a>
+			<c:if test= "${not empty sessionAdmin }">
+				<div class="col-2">
+					<div class="load-more">
+						<a href="/notice/new" class="btn clever-btn">공지사항 등록</a>
+					</div>
 				</div>
-			</div>
+			</c:if>
 		</div>
 	</div>
 </div>

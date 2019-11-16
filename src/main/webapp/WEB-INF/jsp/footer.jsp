@@ -14,7 +14,7 @@
 						<p><a href="#" data-toggle="modal" data-target="#modalLoginForm">관리자 로그인</a></p>
 					</c:if>
 					<c:if test="${not empty sessionAdmin }">
-						<p><a href="#" id="logOut">관리자 로그인</a></p>					
+						<p><a href="#" id="logOut">로그아웃</a></p>					
 					</c:if>
 					<p>
 						<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -55,7 +55,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-default"><strong>로그인</strong></button>
+        <button class="btn btn-default" id="loginBtn" name="loginBtn"><strong>로그인</strong></button>
       </div>
     </div>
   </div>

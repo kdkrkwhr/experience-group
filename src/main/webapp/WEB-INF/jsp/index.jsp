@@ -5,6 +5,7 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 
+<link rel="stylesheet" href="/resources/css/main.css">
 <script src="/resources/js/use/boardList.js"></script>
 <!-- ##### Catagory ##### -->
 <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3">
@@ -15,12 +16,6 @@
 		<div class="col-12">
 			<h6>체험단 신청하기 버튼을 통해 쉽고 빠르게 접수해보세요.</h6>
 		</div>	
-		<div class="col-2">
-			<div class="load-more text-center wow fadeInUp"
-				data-wow-delay="50ms">
-				<a href="/experience/board" class="btn clever-btn btn-2">신청하러 가기</a>
-			</div>
-		</div>
 	</div>
 </div>
 
