@@ -13,42 +13,44 @@ import com.example.model.Experience;
 public interface ExperienceRepository extends JpaRepository<Experience, Integer>  {
 	
 	String EXP_SELECT_5 =
-			"	SELECT TOP 5"
-					+ "		EXPERIENCE_NO"
-					+ "		,SUBJECT"
-					+ "		,TYPE"
-					+ "		,APPLI_CNT"
-					+ "		,RECRUT_CNT"
-					+ "		,REG_DATE"
-					+ "		,PRD_NAME"
-					+ "		,CONTENT"
+			"	SELECT"
+					+ "		experience_no"
+					+ "		,subject"
+					+ "		,type"
+					+ "		,appli_cnt"
+					+ "		,recrut_cnt"
+					+ "		,reg_date"
+					+ "		,prd_name"
+					+ "		,content"
 					+ "	FROM"
-					+ "		EXPERIENCE"
-					+ "	ORDER BY EXPERIENCE_NO DESC";
+					+ "		experience"
+					+ "	ORDER BY experience_no DESC";
 	
 	String EXP_SELECT_10 =
-			"	SELECT TOP 10"
-					+ "		EXPERIENCE_NO"
-					+ "		,SUBJECT"
-					+ "		,TYPE"
-					+ "		,APLI_CNT"
-					+ "		,RECRUT_CNT"
-					+ "		,REG_DATE"
+			"	SELECT"
+					+ "		experience_no"
+					+ "		,subject"
+					+ "		,type"
+					+ "		,appli_cnt"
+					+ "		,recrut_cnt"
+					+ "		,reg_date"
+					+ "		,prd_name"
+					+ "		,content"
 					+ "	FROM"
-					+ "		EXPERIENCE"
-					+ "	ORDER BY EXPERIENCE_NO DESC";
+					+ "		experience"
+					+ "	ORDER BY experience_no DESC";
 	
 	String EXP_SELECT_1 = 
-			"	SELECT EXPERIENCE_NO"
-			+ "		,SUBJECT"
-			+ "		,TYPE"
-			+ "		,APPLI_CNT"
-			+ "		,RECRUT_CNT"
-			+ "		,REG_DATE"
-			+ "		,PRD_NAME"
-			+ "		,CONTENT"
-			+ "	FROM EXPERIENCE"
-			+ "	WHERE EXPERIENCE_NO = :idx";
+			"	SELECT experience_no"
+			+ "		,subject"
+			+ "		,type"
+			+ "		,appli_cnt"
+			+ "		,recrut_cnt"
+			+ "		,reg_date"
+			+ "		,prd_name"
+			+ "		,content"
+			+ "	FROM experience"
+			+ "	WHERE experience_no = :idx";
 	/**
 	 * 메인 게시글 5개 SELECT
 	 */

@@ -5,7 +5,7 @@
 <!-- ##### Header Area End ##### -->
 <script>
 	var goMenu = function(idx) {
-		location.href = "/board/" + idx;
+		location.href = "/experience/board/" + idx;
 	}
 </script>
 <!-- ##### Breadcumb Area Start ##### -->
@@ -15,7 +15,7 @@
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="/">Home</a></li>
 			<li class="breadcrumb-item">스터디 모집</li>
-			<li class="breadcrumb-item active" aria-current="page">${boardCat }</li>
+			<li class="breadcrumb-item active" aria-current="page">${cat }</li>
 		</ol>
 	</nav>
 </div>
@@ -25,7 +25,7 @@
 <div
 	class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
 	style="background-image: url('/resources/img/bg-img/bg2.jpg');">
-	<h3>${boardCat }</h3>
+	<h3>${cat }</h3>
 </div>
 
 <!-- ##### Popular Course Area Start ##### -->
@@ -46,7 +46,7 @@
 				<span style="color: #869ada;">등록된 게시물이 없습니다.</span>
 			</div>
 			</c:if>
-			<c:forEach var="board" items="${boardList }">
+			<c:forEach var="board" items="${expList }">
 				<!-- Single Popular Course -->
 				<div class="col-12 col-md-6 col-lg-12" style="height: 250px;">
 					<div class="single-popular-course mb-100 wow fadeInUp"
@@ -57,8 +57,8 @@
 								<span style="cursor: pointer;" onclick="javascript:goMenu(${board.experienceNo})" >${board.subject }</span>
 							</h4>
 							<div class="meta d-flex align-items-center">
-								<a href="#">${board.memberName }</a> <span><i
-									class="fa fa-circle" aria-hidden="true"></i></span> <a href="#">${board.boardCat }</a>
+								<a href="#">board.memberName</a> <span><i
+									class="fa fa-circle" aria-hidden="true"></i></span> <a href="#">board.boardCat</a>
 							</div>
 							<p style="height: 50px; overflow: auto;">${board.content }</p>
 						</div>
@@ -66,24 +66,24 @@
 						<div class="seat-rating-fee d-flex justify-content-between">
 							<div class="seat-rating h-100 d-flex align-items-center">
 								<div class="seat">
-									<i class="fa fa-user" aria-hidden="true"></i> 0 /
-									${board.totalPersonCnt }
+									<i class="fa fa-user" aria-hidden="true"></i> ${board.appliCnt } /
+									${board.recrutCnt }
 								</div>
 								<div class="rating">
 									<i class="fa fa-star" aria-hidden="true"></i> ${board.regDate }
 								</div>
 							</div>
-							<c:if test="${sessionMember.no eq board.memberNo }">
+							<%-- <c:if test="${sessionMember.no eq board.memberNo }"> --%>
 								<div class="seat-rating h-100 d-flex align-items-center"
 									style="cursor: pointer;">
-									<div onclick="boardDetailAction(${board.boardNo});">
+									<div onclick="boardDetailAction(${board.experienceNo});">
 										<span>수정</span>
 									</div>
-									<div onclick="boardDeleteAction(${board.boardNo});">
+									<div onclick="boardDeleteAction(${board.experienceNo});">
 										<span>삭제</span>
 									</div>
 								</div>
-							</c:if>
+							<%-- </c:if> --%>
 						</div>
 					</div>
 				</div>

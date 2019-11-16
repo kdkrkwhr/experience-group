@@ -28,6 +28,7 @@ public class ExperienceController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String main(Model model) {
 		log.info("메인 화면");
+		model.addAttribute("expList", er.mainBoardSelect());
 		return "index";
 	}
 
@@ -40,6 +41,7 @@ public class ExperienceController {
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String noticeList(Model model) {
 		log.info("체험단 신청하기 게시글 목록");
+		model.addAttribute("expList", er.ExperienceBoardSelect());
 		return "exp";
 	}
 	

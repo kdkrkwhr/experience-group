@@ -4,7 +4,11 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
-<script src="/resources/js/use/noticeRegister.js"></script>
+<script>
+	var insert = function() {
+		alert("insert 버튼 클릭");
+	}
+</script>
 <!-- ##### Catagory ##### -->
 
 <!-- ##### Popular Course Area Start ##### -->
@@ -22,7 +26,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="forms">
-							<h4>${cat }</h4>
+							<h4>${cat } / ${exp.prdName }</h4>
 							<div class="row">
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
@@ -57,7 +61,7 @@
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>상품명</strong> <input type="text" class="form-control"
-											name="prdName" id="prdName" placeholder="상품명" />
+											name="prdName" id="prdName" placeholder="상품명" value="${exp.prdName }" readonly="readonly"/>
 									</div>
 								</div>
 								<div class="col-12 col-lg-12">
