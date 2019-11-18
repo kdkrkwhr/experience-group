@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12" style=" text-align: center;">
-				<span style="color: #869ada;">등록된 게시물이 없습니다.</span>
+				<span style="color: #869ada;"><!-- 등록된 게시물이 없습니다. --></span>
 			</div>
 			
 			<!-- Single Popular Course -->

@@ -52,21 +52,26 @@
 							<div class="cell" data-title=""><span onclick = "noticeDeleteAction(${list.noticeNo })"><strong>삭제</strong></span></div>
 						</c:if>
 					</div>
-
 				</c:forEach>
-
 			</div>
 			<hr/>
 			<c:if test= "${not empty sessionAdmin }">
-				<div class="col-2">
-					<div class="load-more">
-						<a href="/notice/new" class="btn clever-btn">공지사항 등록</a>
+				<div class="row">
+					<div class="col-2">
+						<div class="load-more">
+							<a href="/notice/new" class="btn clever-btn">공지사항 등록</a>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="load-more">
+							<a href="#" class="btn clever-btn">엑셀 다운로드</a>
+						</div>
 					</div>
 				</div>
 			</c:if>
 
-			<input type="text" id="nowPageNum" name="nowPageNum" value="${nowPageNum }"/>
-			<input type="text" id="totalPage" name="totalPage" value="${totalPage }"/>
+			<input type="hidden" id="nowPageNum" name="nowPageNum" value="${nowPageNum }"/>
+			<input type="hidden" id="totalPage" name="totalPage" value="${totalPage }"/>
 
 			<div class="pagination">
 			<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
