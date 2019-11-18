@@ -11,10 +11,10 @@
 <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3">
 	<div class="container">
 		<div class="col-12">
-			<h3>이용방법 안내</h3>
+			<h3>공지사항</h3>
 		</div>
 		<div class="col-12">
-			<h6>체험단 신청하기 버튼을 통해 쉽고 빠르게 접수해보세요.</h6>
+			<h6>체험단 신청하기 전에 공지사항을 확인해주세요.</h6>
 		</div>
 	</div>
 </div>
