@@ -34,7 +34,7 @@
 					</c:if>
 				</div>
 
-				<c:forEach var="list" items="${list }">
+				<c:forEach var="list" items="${list.content }">
 
 					<div class="row-t">
 						<div class="cell" data-title="번호">
@@ -64,6 +64,24 @@
 					</div>
 				</div>
 			</c:if>
+
+			<input type="text" id="nowPageNum" name="nowPageNum" value="${nowPageNum }"/>
+			<input type="text" id="totalPage" name="totalPage" value="${totalPage }"/>
+
+			<div class="pagination">
+			<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
+			<c:if test="${totalPage > nowPageNum }">
+				<c:if test="${nowPageNum ne 0 }">
+					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum-1 }" class="page-btn">${nowPageNum }</a>
+				</c:if>
+				<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum }" class="page-btn">${nowPageNum+1 }</a>
+				<c:if test="${totalPage-1 ne nowPageNum }">
+					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum+1 }" class="page-btn">${nowPageNum+2 }</a>
+				</c:if>
+			</c:if>
+			<a href="?sort=noticeNo,desc&size=5&page=${totalPage-1 }" class="page-btn">&raquo;</a>
+			</div>
+			
 		</div>
 	</div>
 </div>

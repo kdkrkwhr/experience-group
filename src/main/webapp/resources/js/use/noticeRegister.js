@@ -33,7 +33,7 @@ $().ready(function() {
 			contentType : "application/json; charset=utf-8",
 			success : function() {
 				alert("공지사항이 등록 되었습니다.");
-				location.href = "/notice/list";
+				location.href = "/notice/list?sort=noticeNo,desc&size=5";
 			}
 		});
 	});
