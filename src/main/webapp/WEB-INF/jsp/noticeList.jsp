@@ -46,7 +46,7 @@
 								${list.noticeNo }
 							</span>
 						</div>
-						<div class="cell" data-title="제목"><strong>[공지] ${list.subject }</strong></div>
+						<div class="cell" data-title="제목"><a href="/notice/view/${list.noticeNo}"><strong>[공지] ${list.subject }</strong></a></div>
 						<div class="cell" data-title="등록일"><strong>${list.regDate }</strong></div>
 						<c:if test= "${not empty sessionAdmin }">
 							<div class="cell" data-title=""><span onclick = "noticeDeleteAction(${list.noticeNo })"><strong>삭제</strong></span></div>

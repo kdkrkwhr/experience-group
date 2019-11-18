@@ -54,12 +54,12 @@ public class NoticeController {
 		try {
 			Notice notice = noticeRepository.findById(idx).get();
 			model.addAttribute("notice", notice);
-			model.addAttribute("cat", "공지사항 수정");
-			model.addAttribute("btnCat", "수정");
+			model.addAttribute("cat", "공지사항");
+			model.addAttribute("btnCat", "");
 		} catch(Exception e) {
 			return e.getMessage();
 		}
-		return "noticeRegister";
+		return "noticeDetail";
 	}
 
 	// 공지사항 등록

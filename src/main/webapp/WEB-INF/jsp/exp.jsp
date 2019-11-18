@@ -24,9 +24,15 @@ function delMenu(idx){
 }
 </script>
 <!-- ##### Catagory ##### -->
-<div
-	class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
-	style="background-image: url('/resources/img/bg-img/bg2.jpg');">
+<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3" style="background-image: url('/resources/img/bg-img/bg2.jpg');">
+	<div class="container">
+		<div class="col-12">
+			<h3>체험단 신청하기</h3>
+		</div>
+		<div class="col-12">
+			<h6>체험단 신청 목록입니다.</h6>
+		</div>	
+	</div>
 </div>
 
 <!-- ##### Popular Course Area Start ##### -->
@@ -49,7 +55,6 @@ function delMenu(idx){
 				</div>
 			</div>
 		</c:if>
-		<hr/>
 		<div class="row">
 			<c:if test="${fn:length(expList) == 0}">
 			<div class="col-12" style=" text-align: center;">
