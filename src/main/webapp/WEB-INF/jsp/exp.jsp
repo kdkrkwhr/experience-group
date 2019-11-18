@@ -40,6 +40,15 @@ function delMenu(idx){
 				</div>
 			</div>
 		</div>
+		<c:if test= "${not empty sessionAdmin }">
+			<div class="row">
+				<div class="col-2">
+					<div class="load-more">
+						<a href="/notice/new" class="btn clever-btn">게시글 등록</a>
+					</div>
+				</div>
+			</div>
+		</c:if>
 		<hr/>
 		<div class="row">
 			<c:if test="${fn:length(expList) == 0}">
@@ -55,7 +64,7 @@ function delMenu(idx){
 						<!-- Course Content -->
 						<div class="course-content">
 							<h4>
-								<span style="cursor: pointer;" onclick="javascript:goMenu(${board.experienceNo})" >${board.subject }</span>
+								<span style="cursor: pointer;" >${board.subject }</span>
 							</h4>
 							<p style="height: 50px; overflow: auto;">${board.content }</p>
 						</div>
@@ -70,14 +79,17 @@ function delMenu(idx){
 									<i class="fa fa-star" aria-hidden="true"></i> ${board.regDate }
 								</div>
 							</div>
-							<c:if test="${not empty sessionAdmin }">
 								<div class="seat-rating h-100 d-flex align-items-center"
 									style="cursor: pointer;">
+								<div onclick="javascript:goMenu(${board.experienceNo})">
+									<span>신청</span>
+								</div>
+								<c:if test="${not empty sessionAdmin }">
 									<div onclick="delMenu(${board.experienceNo});">
 										<span>삭제</span>
 									</div>
+								</c:if>
 								</div>
-							</c:if>
 						</div>
 					</div>
 				</div>

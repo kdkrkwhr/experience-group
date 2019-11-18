@@ -15,10 +15,10 @@
 
 <section
 	class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
-	style="padding-top: 30px; padding-bottom: 33px; background: #651441;">
+	style="padding-top: 30px; padding-bottom: 33px; background: #651441; padding-left: 30%;">
 	<!-- Register Contact Form -->
 	<div class="register-contact-form wow fadeInUp" data-wow-delay="250ms"
-		style="visibility: visible; animation-delay: 250ms; animation-name: fadeInUp; min-width: 100%;">
+		style="visibility: visible; animation-delay: 250ms; animation-name: fadeInUp; min-width: 60%;">
 		<div class="register-contact-form mb-0 wow fadeInUp"
 			data-wow-delay="250ms"
 			style="visibility: visible; animation-delay: 250ms; animation-name: fadeInUp; min-width: 100%;">
@@ -36,7 +36,7 @@
 								</div>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
-										<strong>이메일<strong> <input type="text" class="form-control"
+										<strong>이메일</strong> <input type="text" class="form-control"
 											name="email" id="email" placeholder="이메일" />
 									</div>
 								</div>
