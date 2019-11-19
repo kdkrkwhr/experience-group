@@ -55,7 +55,6 @@ public class NoticeController {
 			Notice notice = noticeRepository.findById(idx).get();
 			model.addAttribute("notice", notice);
 			model.addAttribute("cat", "공지사항");
-			model.addAttribute("btnCat", "");
 		} catch(Exception e) {
 			return e.getMessage();
 		}
@@ -68,8 +67,9 @@ public class NoticeController {
 		try {
 			Notice notice = noticeRepository.findById(idx).get();
 			model.addAttribute("notice", notice);
-			model.addAttribute("cat", "공지사항");
-			model.addAttribute("btnCat", "");
+			model.addAttribute("cat", "공지사항 수정");
+			model.addAttribute("btnId", "updateBtn");
+			model.addAttribute("btnCat", "수정");
 		} catch(Exception e) {
 			return e.getMessage();
 		}
@@ -96,7 +96,21 @@ public class NoticeController {
 
 	// 공지사항 수정
 	@RequestMapping(value="/api/update/{idx}", method = RequestMethod.PUT)
-	public ResponseEntity<String> noticeUpdate(@PathVariable("idx") int idx) {
+	public ResponseEntity<String> noticeUpdate(@PathVariable("idx") int idx, @RequestBody Notice reqNotice) {
+
+		try { 
+
+			Notice notice = noticeRepository.findById(idx).get();
+			notice.setSubject(reqNotice.getSubject());
+			notice.setContent(reqNotice.getContent());
+			notice.setFilePath(reqNotice.getFilePath());
+
+			noticeRepository.save(notice);
+
+		} catch(Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
@@ -116,6 +130,7 @@ public class NoticeController {
 	public String registerPage(Model model) {
 		log.info("NOTICE REGISTER PAGE");
 		model.addAttribute("cat", "공지사항 등록");
+		model.addAttribute("btnId", "registerBtn");
 		model.addAttribute("btnCat", "등록");
 		return "noticeRegister";
 	}

@@ -19,15 +19,17 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="forms">
-							<h4>${cat }</h4>
 							<div class="row">
+								<%-- <strong>등록일  / ${notice.regDate }</strong> --%>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
-										<strong>등록일   ${notice.regDate }</strong>
-										<h4><strong>${notice.subject }</strong></h4>
+										<strong>제목</strong>
+										<hr/>
+										<h5><strong>${notice.subject }</strong></h5><hr/>
 									</div>
 								</div>
 								<div class="col-12 col-lg-12">
+									<strong>내용</strong>
 									<hr/>
 									<div class="form-group" style="height: 300px">
 										${notice.content }

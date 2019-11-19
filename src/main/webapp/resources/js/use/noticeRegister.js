@@ -39,9 +39,10 @@ $().ready(function() {
 	});
 
 	$('#updateBtn').click(function() {
+		var noticeNo = $('#noticeNo').val();
 		$.ajax({
-			method : "POST",
-			url : pageUrl + "notice/api/update",
+			method : "PUT",
+			url : pageUrl + "notice/api/update/" + noticeNo,
 			data : JSON.stringify({
 				subject : $('#subject').val(),
 				content : $('#content').val(),
@@ -49,7 +50,7 @@ $().ready(function() {
 			}),
 			contentType : "application/json; charset=utf-8",
 			success : function() {
-				alert("공지사항이 등록 되었습니다.");
+				alert("공지사항이 수정 되었습니다.");
 				location.href = "/notice/list?sort=noticeNo,desc&size=5";
 			}
 		});

@@ -22,8 +22,8 @@
 
 <!-- ##### Popular Course Area Start ##### -->
 <div class="limiter">
-	<div class="container-table100">
-		<div class="wrap-table100" style="height: 450px">
+	<div class="container-table100" style="margin-top: 45px">
+		<div class="wrap-table100" style="height: 470px; overflow-y: auto">
 			<div class="table">
 				<div class="row-t header">
 					<div class="cell">번호</div>
@@ -40,15 +40,14 @@
 				</c:if>
 				<c:forEach var="list" items="${list.content }">
 					<div class="row-t">
-						<div class="cell" data-title="번호">
-							<span 
-								<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
+						<div class="cell" data-title="번호"<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
 								<c:if test= "${empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>>
-								<strong>${list.noticeNo }</strong>
-							</span>
+							<span><strong>${list.noticeNo }</strong></span>
 						</div>
-						<div class="cell" data-title="제목"><a href="/notice/view/${list.noticeNo}"><strong>[공지] ${list.subject }</strong></a></div>
-						<div class="cell" data-title="등록일"><strong>${list.regDate }</strong></div>
+						<div class="cell" data-title="제목"<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
+								<c:if test= "${empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>><strong>[공지] ${list.subject }</strong></div>
+						<div class="cell" data-title="등록일"<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
+								<c:if test= "${empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>><strong>${list.regDate }</strong></div>
 						<c:if test= "${not empty sessionAdmin }">
 							<div class="cell" data-title=""><span onclick = "noticeDeleteAction(${list.noticeNo })"><strong>삭제</strong></span></div>
 						</c:if>
@@ -76,7 +75,7 @@
 		</div>
 			<input type="hidden" id="nowPageNum" name="nowPageNum" value="${nowPageNum }"/>
 			<input type="hidden" id="totalPage" name="totalPage" value="${totalPage }"/>
-			<div class="pagination">
+			<div class="pagination" style="margin-top: 10px;">
 				<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
 				<c:if test="${totalPage > nowPageNum }">
 					<c:if test="${nowPageNum ne 0 }">

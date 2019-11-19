@@ -24,8 +24,3 @@ function noticeDeleteAction(idx) {
 	    });		
 	}
 }
-
-$().ready(function(){
-	$('.page-btn').click(function() {
-	})
-})

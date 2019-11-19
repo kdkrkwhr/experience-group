@@ -85,17 +85,17 @@ function delMenu(idx){
 									<i class="fa fa-star" aria-hidden="true"></i> ${board.regDate }
 								</div>
 							</div>
-								<div class="seat-rating h-100 d-flex align-items-center"
-									style="cursor: pointer;">
-								<div onclick="javascript:goMenu(${board.experienceNo})">
-									<span>신청</span>
+							<div class="seat-rating h-100 d-flex align-items-center"
+								style="cursor: pointer;">
+							<div onclick="javascript:goMenu(${board.experienceNo})">
+								<span>신청</span>
+							</div>
+							<c:if test="${not empty sessionAdmin }">
+								<div onclick="delMenu(${board.experienceNo});">
+									<span>삭제</span>
 								</div>
-								<c:if test="${not empty sessionAdmin }">
-									<div onclick="delMenu(${board.experienceNo});">
-										<span>삭제</span>
-									</div>
-								</c:if>
-								</div>
+							</c:if>
+							</div>
 						</div>
 					</div>
 				</div>

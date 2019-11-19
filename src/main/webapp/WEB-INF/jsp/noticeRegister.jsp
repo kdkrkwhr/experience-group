@@ -23,6 +23,7 @@
 						<div class="forms">
 							<h4>${cat }</h4>
 							<div class="row">
+								<input type="hidden" id="noticeNo" name="noticeNo" value="${notice.noticeNo }"/>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>제목</strong> <input type="text" class="form-control"
@@ -35,7 +36,7 @@
 								</div>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
-										<input type="button" class="btn w-100" id="registerBtn" name="registerBtn" value="${btnCat }">
+										<input type="button" class="btn w-100" id="${btnId }" name="${btnId }" value="${btnCat }">
 								</div>
 							</div>
 						</div>
