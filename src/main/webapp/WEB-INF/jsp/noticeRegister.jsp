@@ -34,10 +34,23 @@
 								<div class="col-12 col-lg-12">
 									<textarea name="content" id="content" class="form-control">${notice.content }</textarea>
 								</div>
+								<div class="col-12 col-lg-12" style="padding: 20px;">
+									<!--input box-->
+									<input type="text" class="upload_text" readonly="readonly">
+									<!--button-->
+									<div class="upload-btn_wrap">
+									  <button type="button" title="파일찾기">
+									   <span>파일찾기</span>  
+									  </button>
+									  <input type="file" class="input_file" title="파일찾기">
+									</div>
+								</div>
+								
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
 										<input type="button" class="btn w-100" id="${btnId }" name="${btnId }" value="${btnCat }">
 								</div>
+
 							</div>
 						</div>
 					</div>

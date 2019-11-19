@@ -28,7 +28,6 @@ ul, li {
 /* ------------------------------------ */
 input {
 	display: block;
-	outline: none;
 	border: none !important;
 }
 
@@ -132,6 +131,41 @@ iframe {
 	display: table-cell;
 }
 
+input.upload_text {/*읽기전용 인풋텍스트*/
+	float:left;
+	width:110px;/* 버튼 포함 전체 가로 길이*/
+	height:19px;
+	line-height:19px;
+	padding:0 3px;
+	border:1px solid #bbb;
+}
+
+div.upload-btn_wrap input.input_file {/*파일찾기 폼 투명하게*/
+	position:absolute;
+	top:0;
+	right:0;
+	cursor:pointer;
+	opacity:0;
+	filter:alpha(opacity=0);
+	-ms-filter:"alpha(opacity=0)";
+	-moz-opacity:0;
+}
+div.upload-btn_wrap {/*버튼테두리 감싼 div*/
+	overflow:hidden;
+	position:relative;
+	float:left;
+	width:70px;/*width, height 값은 button(찾아보기)값과 같아야함 */
+	height:21px;
+	padding-left:3px;
+}
+div.upload-btn_wrap button {/*버튼 div*/
+	width:70px;
+	height:21px;
+	font-weight:bold;
+	background:#333;
+	border:1px solid #333;
+	color:#fff;
+}
 @media screen and (max-width: 768px) {
 	.cell {
 		display: block;

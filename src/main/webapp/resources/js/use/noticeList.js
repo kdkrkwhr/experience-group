@@ -21,6 +21,21 @@ function noticeDeleteAction(idx) {
 	        	alert('게시글이 지워졌습니다.');
 	        	location.reload();
 	        }
-	    });		
+	    });
+	}
+}
+
+function excelDownload() {
+	var nowPage = $('#nowPage').val();
+	var excelDownloadCon = confirm("다운로드 받으시겠습니까?");
+
+	if (excelDownloadCon) {
+		$.ajax({
+			method : "GET",
+			url : pageUrl + "notice/api/excel?sort=noticeNo,desc&size=5&page=" + nowPage,
+			success : function() {
+				console.log("EXCEL_DOWNLOAD");
+			}
+		});
 	}
 }

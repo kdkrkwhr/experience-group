@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/resources/css/main.css">
 <script src="/resources/js/use/noticeList.js"></script>
 <!-- ##### Catagory ##### -->
-<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3">
+<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3" tyle="background-image: url('/resources/img/bg-img/bg2.jpg');">
 	<div class="container">
 		<div class="col-12">
 			<h3>공지사항</h3>
@@ -64,30 +64,29 @@
 					</div>
 					<div class="col-2">
 						<div class="load-more">
-							<a href="#" class="btn clever-btn">엑셀 다운로드</a>
+							<span class="btn clever-btn" onclick = "excelDownload()">엑셀 다운로드</span>
 						</div>
 					</div>
 				</div>
 				<hr/>
 			</c:if>
 
-
 		</div>
-			<input type="hidden" id="nowPageNum" name="nowPageNum" value="${nowPageNum }"/>
-			<input type="hidden" id="totalPage" name="totalPage" value="${totalPage }"/>
-			<div class="pagination" style="margin-top: 10px;">
-				<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
-				<c:if test="${totalPage > nowPageNum }">
-					<c:if test="${nowPageNum ne 0 }">
-						<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum-1 }" class="page-btn">${nowPageNum }</a>
-					</c:if>
-					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum }" class="page-btn">${nowPageNum+1 }</a>
-					<c:if test="${totalPage-1 ne nowPageNum }">
-						<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum+1 }" class="page-btn">${nowPageNum+2 }</a>
-					</c:if>
+		<input type="hidden" id="nowPage" name="nowPage" value="${nowPageNum }"/>
+		<input type="hidden" id="totalPage" name="totalPage" value="${totalPage }"/>
+		<div class="pagination" style="margin-top: 10px;">
+			<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
+			<c:if test="${totalPage > nowPageNum }">
+				<c:if test="${nowPageNum ne 0 }">
+					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum-1 }" class="page-btn">${nowPageNum }</a>
 				</c:if>
-				<a href="?sort=noticeNo,desc&size=5&page=${totalPage-1 }" class="page-btn">&raquo;</a>
-			</div>
+				<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum }" class="page-btn">${nowPageNum+1 }</a>
+				<c:if test="${totalPage-1 ne nowPageNum }">
+					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum+1 }" class="page-btn">${nowPageNum+2 }</a>
+				</c:if>
+			</c:if>
+			<a href="?sort=noticeNo,desc&size=5&page=${totalPage-1 }" class="page-btn">&raquo;</a>
+		</div>
 	</div>
 </div>
 <!-- ##### Popular Course Area End ##### -->

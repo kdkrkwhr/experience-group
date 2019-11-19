@@ -24,6 +24,7 @@ function delMenu(idx){
 	}
 }
 </script>
+<link rel="stylesheet" href="/resources/css/main.css">
 <!-- ##### Catagory ##### -->
 <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3" style="background-image: url('/resources/img/bg-img/bg2.jpg');">
 	<div class="container">
@@ -85,17 +86,17 @@ function delMenu(idx){
 									<i class="fa fa-star" aria-hidden="true"></i> ${board.regDate }
 								</div>
 							</div>
-							<div class="seat-rating h-100 d-flex align-items-center"
-								style="cursor: pointer;">
-							<div onclick="javascript:goMenu(${board.experienceNo})">
-								<span>신청</span>
-							</div>
-							<c:if test="${not empty sessionAdmin }">
-								<div onclick="delMenu(${board.experienceNo});">
-									<span>삭제</span>
+								<div class="seat-rating h-100 d-flex align-items-center"
+									style="cursor: pointer;">
+								<div onclick="javascript:goMenu(${board.experienceNo})">
+									<span>신청</span>
 								</div>
-							</c:if>
-							</div>
+								<c:if test="${not empty sessionAdmin }">
+									<div onclick="delMenu(${board.experienceNo});">
+										<span>삭제</span>
+									</div>
+								</c:if>
+								</div>
 						</div>
 					</div>
 				</div>

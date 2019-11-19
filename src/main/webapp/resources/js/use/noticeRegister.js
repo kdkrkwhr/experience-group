@@ -21,6 +21,12 @@ $().ready(function() {
 	$('.note-insert').remove();
 	$('.note-view').remove();
 
+	$('.upload_text').val('Upload File ...');
+	$('.input_file').change(function(){
+		var i = $(this).val();
+		$('.upload_text').val(i);
+	});
+
 	$('#registerBtn').click(function() {
 		$.ajax({
 			method : "POST",
