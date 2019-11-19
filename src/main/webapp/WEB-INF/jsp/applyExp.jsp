@@ -10,7 +10,7 @@
 		alert("insert 버튼 클릭");
 	}
 </script>
-<!-- ##### Catagory ##### -->
+<!-- ##### Catagory ##### --> 
 
 <!-- ##### Popular Course Area Start ##### -->
 
