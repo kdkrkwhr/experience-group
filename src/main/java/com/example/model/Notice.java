@@ -29,15 +29,15 @@ public class Notice {
 
 	private String regDate;
 
-	private int fileNo;
+	private String filePath;
 
 	@Builder
-	public Notice(String subject, String content, String regDate, int fileNo) {
+	public Notice(String subject, String content, String regDate, String filePath) {
 
 		this.subject = subject;
 		this.content = content;
 		this.regDate = regDate;
-		this.fileNo = fileNo;
+		this.filePath = filePath;
 
 	}
 }

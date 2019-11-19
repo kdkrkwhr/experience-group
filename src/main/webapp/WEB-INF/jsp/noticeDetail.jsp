@@ -1,3 +1,4 @@
+<!-- 공지사항 / 상세보기 페이지 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- ##### Header Area Start ##### -->
@@ -22,24 +23,23 @@
 							<div class="row">
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
-										<strong>${notice.subject }</strong>
+										<strong>등록일   ${notice.regDate }</strong>
+										<h4><strong>${notice.subject }</strong></h4>
 									</div>
 								</div>
 								<div class="col-12 col-lg-12">
-									<div class="form-group">
+									<hr/>
+									<div class="form-group" style="height: 300px">
 										${notice.content }
 									</div>
+									<hr/><br/>
 								</div>
-								<div class="col-12 col-lg-12">
+<%-- 								<div class="col-12 col-lg-12">
 									<div class="form-group">
-										<strong>등록일 : ${notice.regDate }</strong>
+										<strong>파일 경로 : ${notice.filePath }</strong>
 									</div>
-								</div>
-								<div class="col-12 col-lg-12">
-									<div class="form-group">
-										<strong>파일 번호 : ${notice.fileNo }</strong>
-									</div>
-								</div>
+								</div> --%>
+								<hr/>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
 										<input type="button" onclick="javascript:location.href = '/notice/list?sort=noticeNo,desc&size=5';" class="btn w-100" id="registerBtn" name="registerBtn" value="목록으로" />
@@ -52,7 +52,6 @@
 		</div>
 	</div>
 </section>
-
 <!-- ##### Popular Course Area End ##### -->
 
 <!-- ##### Footer Area Start ##### -->

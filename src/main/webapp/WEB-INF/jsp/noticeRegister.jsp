@@ -1,15 +1,13 @@
+<!-- (관리자) 공지사항 / 등록 및 수정 페이지 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!-- ##### Header Area Start ##### -->
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
 <script src="/resources/js/use/noticeRegister.js"></script>
 <!-- ##### Catagory ##### -->
-
 <!-- ##### Popular Course Area Start ##### -->
-
 <section
 	class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
 	style="padding-top: 30px; padding-bottom: 33px; background: #651441;">

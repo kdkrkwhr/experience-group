@@ -2,6 +2,10 @@
  * NOTICE LIST
  */
 
+function noticeAdminViewAction(idx) {
+	location.href = "/notice/admin/view/" + idx;
+}
+
 function noticeViewAction(idx) {
 	location.href = "/notice/view/" + idx;
 }

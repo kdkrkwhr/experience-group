@@ -1,3 +1,4 @@
+<!-- 공지사항  목록 페이지  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -22,9 +23,8 @@
 <!-- ##### Popular Course Area Start ##### -->
 <div class="limiter">
 	<div class="container-table100">
-		<div class="wrap-table100">
+		<div class="wrap-table100" style="height: 450px">
 			<div class="table">
-
 				<div class="row-t header">
 					<div class="cell">번호</div>
 					<div class="cell">제목</div>
@@ -33,17 +33,18 @@
 						<div class="cell"></div>
 					</c:if>
 				</div>
-
+				<c:if test="${fn:length(list.content) == 0}">
+					<div class="col-12" style=" text-align: center;">
+						<span style="color: #869ada;">등록된 게시물이 없습니다.</span>
+					</div>
+				</c:if>
 				<c:forEach var="list" items="${list.content }">
-
 					<div class="row-t">
 						<div class="cell" data-title="번호">
 							<span 
-							<c:if test= "${not empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"
-								${list.noticeNo }
-							</c:if>
-							<c:if test= "${empty sessionAdmin }"> onclick="noticeUserViewAction(${list.noticeNo })"</c:if>>
-								${list.noticeNo }
+								<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
+								<c:if test= "${empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>>
+								<strong>${list.noticeNo }</strong>
 							</span>
 						</div>
 						<div class="cell" data-title="제목"><a href="/notice/view/${list.noticeNo}"><strong>[공지] ${list.subject }</strong></a></div>
@@ -68,26 +69,26 @@
 						</div>
 					</div>
 				</div>
+				<hr/>
 			</c:if>
 
+
+		</div>
 			<input type="hidden" id="nowPageNum" name="nowPageNum" value="${nowPageNum }"/>
 			<input type="hidden" id="totalPage" name="totalPage" value="${totalPage }"/>
-
 			<div class="pagination">
-			<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
-			<c:if test="${totalPage > nowPageNum }">
-				<c:if test="${nowPageNum ne 0 }">
-					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum-1 }" class="page-btn">${nowPageNum }</a>
+				<a href="?sort=noticeNo,desc&size=5" class="page-btn">&laquo;</a>
+				<c:if test="${totalPage > nowPageNum }">
+					<c:if test="${nowPageNum ne 0 }">
+						<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum-1 }" class="page-btn">${nowPageNum }</a>
+					</c:if>
+					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum }" class="page-btn">${nowPageNum+1 }</a>
+					<c:if test="${totalPage-1 ne nowPageNum }">
+						<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum+1 }" class="page-btn">${nowPageNum+2 }</a>
+					</c:if>
 				</c:if>
-				<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum }" class="page-btn">${nowPageNum+1 }</a>
-				<c:if test="${totalPage-1 ne nowPageNum }">
-					<a href="?sort=noticeNo,desc&size=5&page=${nowPageNum+1 }" class="page-btn">${nowPageNum+2 }</a>
-				</c:if>
-			</c:if>
-			<a href="?sort=noticeNo,desc&size=5&page=${totalPage-1 }" class="page-btn">&raquo;</a>
+				<a href="?sort=noticeNo,desc&size=5&page=${totalPage-1 }" class="page-btn">&raquo;</a>
 			</div>
-			
-		</div>
 	</div>
 </div>
 <!-- ##### Popular Course Area End ##### -->

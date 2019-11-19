@@ -36,7 +36,7 @@ public class NoticeController {
 
 	// 공지사항 리스트
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String main(final Pageable pageable, Model model) {
+	public String noticeList(final Pageable pageable, Model model) {
 		try {
 			Page<Notice> noticeList = noticeRepository.findAll(pageable);
 			model.addAttribute("totalPage", noticeList.getTotalPages());
@@ -50,7 +50,7 @@ public class NoticeController {
 
 	// 공지사항 상세 조회
 	@RequestMapping(value = "/view/{idx}", method = RequestMethod.GET)
-	public String noticeList(@PathVariable("idx") int idx, Model model) {
+	public String noticeView(@PathVariable("idx") int idx, Model model) {
 		try {
 			Notice notice = noticeRepository.findById(idx).get();
 			model.addAttribute("notice", notice);
@@ -60,6 +60,20 @@ public class NoticeController {
 			return e.getMessage();
 		}
 		return "noticeDetail";
+	}
+
+	// 공지사항 상세 조회 (관리자용)
+	@RequestMapping(value = "/admin/view/{idx}", method = RequestMethod.GET)
+	public String noticeAdminView(@PathVariable("idx") int idx, Model model) {
+		try {
+			Notice notice = noticeRepository.findById(idx).get();
+			model.addAttribute("notice", notice);
+			model.addAttribute("cat", "공지사항");
+			model.addAttribute("btnCat", "");
+		} catch(Exception e) {
+			return e.getMessage();
+		}
+		return "noticeRegister";
 	}
 
 	// 공지사항 등록
@@ -72,7 +86,7 @@ public class NoticeController {
 					.subject(reqNotice.getSubject())
 					.content(reqNotice.getContent())
 					.regDate(date.toString())
-					.fileNo(reqNotice.getFileNo())
+					.filePath(reqNotice.getFilePath())
 					.build());
 		} catch(Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
@@ -81,7 +95,7 @@ public class NoticeController {
 	}
 
 	// 공지사항 수정
-	@RequestMapping(value="/update/{idx}", method = RequestMethod.PUT)
+	@RequestMapping(value="/api/update/{idx}", method = RequestMethod.PUT)
 	public ResponseEntity<String> noticeUpdate(@PathVariable("idx") int idx) {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
