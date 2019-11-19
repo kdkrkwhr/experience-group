@@ -57,6 +57,10 @@ public class ExcelView {
 
 			}
 
+			sheet.setColumnWidth(0, 3000);
+			sheet.setColumnWidth(1, 10000);
+			sheet.setColumnWidth(2, 7000);
+
 		} while (iterator.hasNext());
 
 		FileOutputStream fos = new FileOutputStream(fileName);
