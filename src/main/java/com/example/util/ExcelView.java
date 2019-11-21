@@ -35,7 +35,7 @@ public class ExcelView {
 			Notice notice = iterator.next();
 			Row row = sheet.createRow(rowIndex++);
 
-			System.out.println("번호 : " + notice.getNoticeNo());
+			System.out.println("게시판 번호 : " + notice.getNoticeNo());
 			if (excelname == 0) {
 
 				Cell cell0 = row.createCell(0);
