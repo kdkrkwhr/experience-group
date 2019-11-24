@@ -181,10 +181,14 @@ public class NoticeController {
 			log.info("FILE END");
 			
 			log.info("MultipartFile START");
-			log.info("project Pth : " +  request.getSession().getServletContext().getRealPath(File.separator));
+			log.info("project Pth : " +  request.getSession().getServletContext().getRealPath(File.separator + "uploads"));
 			log.info(file.getName());
+			if (!new File(request.getSession().getServletContext().getRealPath(File.separator + "uploads")).exists()) {
+				File folder = new File(request.getSession().getServletContext().getRealPath(File.separator + "uploads"));
+				folder.mkdir();
+			}
 			if (!file.getOriginalFilename().isEmpty()) {
-				file.transferTo(new File(request.getSession().getServletContext().getRealPath(File.separator) + File.separator + "uploads" + File.separator + file.getOriginalFilename()));
+				file.transferTo(new File(request.getSession().getServletContext().getRealPath(File.separator + "uploads") + File.separator + file.getOriginalFilename()));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
