@@ -28,8 +28,10 @@ $().ready(function() {
 	});
 
 	$('#registerBtn').click(function() {
-		if (valid()) {
-			$.ajax({
+		document.form.submit();
+	});
+		/*if (valid()) {
+			/*$.ajax({
 				method : "POST",
 				url : pageUrl + "notice/api/register",
 				data : JSON.stringify({
@@ -44,7 +46,7 @@ $().ready(function() {
 				}
 			});
 		}
-	});
+	});*/
 
 	$('#updateBtn').click(function() {
 		if (valid()) {

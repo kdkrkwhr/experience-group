@@ -23,6 +23,7 @@
 						<div class="forms">
 							<h4>${cat }</h4>
 							<div class="row">
+								<form name="form" id="form" method="post" enctype="multipart/form-data" action="/notice/api/register">
 								<input type="hidden" id="noticeNo" name="noticeNo" value="${notice.noticeNo }"/>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
@@ -36,13 +37,13 @@
 								</div>
 								<div class="col-12 col-lg-12" style="padding: 20px;">
 									<!--input box-->
-									<input type="text" class="upload_text" readonly="readonly">
+									<input type="text" class="upload_text" name="upload_text" readonly="readonly">
 									<!--button-->
 									<div class="upload-btn_wrap">
 									  <button type="button" title="파일찾기">
 									   <span>파일찾기</span>  
 									  </button>
-									  <input type="file" class="input_file" title="파일찾기">
+									  <input type="file" class="input_file" name="input_file" title="파일찾기">
 									</div>
 								</div>
 								
@@ -50,7 +51,7 @@
 									style="background: rgba(0,123,255,.25);">
 										<input type="button" class="btn w-100" id="${btnId }" name="${btnId }" value="${btnCat }">
 								</div>
-
+								</form>
 							</div>
 						</div>
 					</div>

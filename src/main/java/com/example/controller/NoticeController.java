@@ -1,14 +1,13 @@
 package com.example.controller;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.util.Enumeration;
+import java.util.Iterator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -19,6 +18,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.model.Notice;
 import com.example.repository.NoticeRepository;
@@ -93,29 +95,6 @@ public class NoticeController {
 		return "noticeRegister";
 	}
 
-	// 공지사항 등록
-	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
-	public ResponseEntity<String> noticeAdd(@RequestBody Notice reqNotice) {
-		log.info("NOTICE REGISTER REST API");
-
-		try {
-
-			LocalDateTime date = LocalDateTime.now();
-			noticeRepository.save(
-					Notice.builder()
-					.subject(reqNotice.getSubject())
-					.content(reqNotice.getContent())
-					.regDate(date.toString())
-					.filePath(reqNotice.getFilePath())
-					.build());
-
-		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-		}
-
-		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
-	}
-
 	// 공지사항 수정
 	@RequestMapping(value = "/api/update/{idx}", method = RequestMethod.PUT)
 	public ResponseEntity<String> noticeUpdate(@PathVariable("idx") int idx, @RequestBody Notice reqNotice) {
@@ -179,4 +158,50 @@ public class NoticeController {
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
+	
+	// 공지사항 등록
+	@Value("${file.upload-dir}")
+	String uploadPath;
+	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
+	public String noticeAdd(@RequestParam("input_file") MultipartFile file, MultipartHttpServletRequest request, Model model) {
+		log.info("NOTICE REGISTER REST API");
+		try {
+			log.info("PARAM START");
+			Enumeration<String> params = request.getParameterNames();
+			while(params.hasMoreElements()) {
+				String param = params.nextElement();
+				log.info(param + " : " + request.getParameter(param));
+			}
+			
+			log.info("PARAM END, FILE START");
+			Iterator<String> iterator = request.getFileNames();
+			while(iterator.hasNext()) {
+				log.info(iterator.next());
+			}
+			log.info("FILE END");
+			
+			log.info("MultipartFile START");
+			log.info("project Pth : " +  request.getSession().getServletContext().getRealPath(File.separator));
+			log.info(file.getName());
+			if (!file.getOriginalFilename().isEmpty()) {
+				file.transferTo(new File(request.getSession().getServletContext().getRealPath(File.separator) + File.separator + "uploads" + File.separator + file.getOriginalFilename()));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		/*
+		 * try {
+		 * 
+		 * LocalDateTime date = LocalDateTime.now(); noticeRepository.save(
+		 * Notice.builder() .subject(reqNotice.getSubject())
+		 * .content(reqNotice.getContent()) .regDate(date.toString())
+		 * .filePath(reqNotice.getFilePath()) .build());
+		 * 
+		 * } catch(Exception e) { return new ResponseEntity<>(e.getMessage(),
+		 * HttpStatus.NOT_FOUND); }
+		 */
+
+		return "redirect:noticeList?sort=noticeNo,desc&size=5";
+	}
+
 }
