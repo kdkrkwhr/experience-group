@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.repository.ExperienceRepository;
 
 @Controller
-@RequestMapping(value = "/experience")
+@RequestMapping(value = "/servlet/experience")
 public class ExperienceController {
 
 	private static final Logger log = LoggerFactory.getLogger(ExperienceController.class);

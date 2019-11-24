@@ -19,7 +19,7 @@ import com.example.model.ExpMember;
 import com.example.repository.ExpMemberRepository;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/servlet/member")
 public class ExpMemberController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ExpMemberController.class);

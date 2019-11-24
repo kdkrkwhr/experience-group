@@ -16,7 +16,7 @@ import com.example.model.Admin;
 import com.example.repository.AdminRepository;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/servlet/admin")
 public class AdminController {
 
 	private static final Logger log = LoggerFactory.getLogger(AdminController.class);
