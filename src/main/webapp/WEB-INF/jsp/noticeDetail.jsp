@@ -44,7 +44,7 @@
 								<hr/>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
-										<input type="button" onclick="javascript:location.href = '/notice/list?sort=noticeNo,desc&size=5';" class="btn w-100" id="registerBtn" name="registerBtn" value="목록으로" />
+										<input type="button" onclick="javascript:location.href = '/servlet/notice/list?sort=noticeNo,desc&size=5';" class="btn w-100" id="registerBtn" name="registerBtn" value="목록으로" />
 								</div>
 							</div>
 						</div>

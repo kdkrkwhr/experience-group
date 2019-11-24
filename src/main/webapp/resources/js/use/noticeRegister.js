@@ -53,7 +53,7 @@ $().ready(function() {
 			var noticeNo = $('#noticeNo').val();
 			$.ajax({
 				method : "PUT",
-				url : pageUrl + "notice/api/update/" + noticeNo,
+				url : pageUrl + "/servlet/notice/api/update/" + noticeNo,
 				data : JSON.stringify({
 					subject : $('#subject').val(),
 					content : $('#content').val(),

@@ -3,13 +3,13 @@
  */
 
 var pageUrl = window.location.hostname;
-pageUrl = "http://" + pageUrl + ":8889/";
+pageUrl = "http://" + pageUrl + "";
 
 $().ready(function() {
 	$('#loginBtn').click(function() {
 		$.ajax({
 			method: "POST",
-			url: pageUrl + "admin/login",
+			url: pageUrl + "/servlet/admin/login",
 			data : JSON.stringify({
 				adminEmail : $('#adminEmail').val(),
 				adminPassword : $('#adminPassword').val()
@@ -28,7 +28,7 @@ $().ready(function() {
 	$('#logOut').click(function() {
 		$.ajax({
 			method: "POST",
-			url: pageUrl + "admin/logout",
+			url: pageUrl + "/servlet/admin/logout",
 			success: function() {
 				alert("로그아웃 되셨습니다.");
 				location.reload();

@@ -6,7 +6,7 @@ $().ready(function() {
 	$('#registerBtn').click(function() {
 		$.ajax({
 	        method: "POST",
-	        url: pageUrl + "members/api/register",
+	        url: pageUrl + "/servlet/members/api/register",
 	        data: JSON.stringify({
 	            email: $('#email').val(),
 	            pwd: $('#pwd').val(),

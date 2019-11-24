@@ -59,7 +59,7 @@
 				<div class="row">
 					<div class="col-2">
 						<div class="load-more">
-							<a href="/notice/new" class="btn clever-btn">공지사항 등록</a>
+							<a href="/servlet/notice/new" class="btn clever-btn">공지사항 등록</a>
 						</div>
 					</div>
 					<div class="col-2">

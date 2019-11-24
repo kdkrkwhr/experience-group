@@ -3,11 +3,11 @@
  */
 
 function noticeAdminViewAction(idx) {
-	location.href = "/notice/admin/view/" + idx;
+	location.href = "/servlet/notice/admin/view/" + idx;
 }
 
 function noticeViewAction(idx) {
-	location.href = "/notice/view/" + idx;
+	location.href = "/servlet/notice/view/" + idx;
 }
 
 function noticeDeleteAction(idx) {
@@ -16,7 +16,7 @@ function noticeDeleteAction(idx) {
 	if (delCon) {
 		$.ajax({
 	        method: "DELETE",
-	        url: pageUrl + "notice/api/delete/" + idx,
+	        url: pageUrl + "/servlet/notice/api/delete/" + idx,
 	        success: function() {
 	        	alert('게시글이 지워졌습니다.');
 	        	location.reload();
@@ -32,7 +32,7 @@ function excelDownload() {
 	if (excelDownloadCon) {
 		$.ajax({
 			method : "GET",
-			url : pageUrl + "notice/api/excel?sort=noticeNo,desc&size=5&page=" + nowPage,
+			url : pageUrl + "/servlet/notice/api/excel?sort=noticeNo,desc&size=5&page=" + nowPage,
 			success : function() {
 				console.log("EXCEL_DOWNLOAD");
 			}

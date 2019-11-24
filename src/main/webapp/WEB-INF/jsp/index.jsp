@@ -6,11 +6,11 @@
 <!-- ##### Header Area End ##### -->
 <script>
 var goMenu = function(idx) {
-	location.href = "/experience/board/" + idx;
+	location.href = "/servlet/experience/board/" + idx;
 }
 
 function expMember(idx) {
-	location.href = "/member/applylist/" + idx;
+	location.href = "/servlet/member/applylist/" + idx;
 }
 
 function delMenu(idx){
@@ -19,7 +19,7 @@ function delMenu(idx){
 	if (delCon) {
 		$.ajax({
 	        method: "DELETE",
-	        url: pageUrl + "experience/api/delete/" + idx,
+	        url: pageUrl + "servlet/experience/api/delete/" + idx,
 	        success: function() {
 	        	alert('게시글이 지워졌습니다.');
 	        	location.reload();
@@ -47,7 +47,7 @@ function delMenu(idx){
 			<div class="col-1">
 				<div class="load-more text-center wow fadeInUp"
 					data-wow-delay="50ms">
-					<a href="/boardRegister" class="btn clever-btn btn-2">게시물 등록</a>
+					<a href="/servlet/boardRegister" class="btn clever-btn btn-2">게시물 등록</a>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@ function delMenu(idx){
 			<div class="row">
 				<div class="col-2">
 					<div class="load-more">
-						<a href="/notice/new" class="btn clever-btn">게시글 등록</a>
+						<a href="/servlet/notice/new" class="btn clever-btn">게시글 등록</a>
 					</div>
 				</div>
 			</div>
@@ -103,7 +103,7 @@ function delMenu(idx){
 										<span>삭제</span>
 									</div>
 								</c:if>
-								</div>
+							</div>
 						</div>
 					</div>
 				</div>

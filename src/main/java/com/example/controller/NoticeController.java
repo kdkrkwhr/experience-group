@@ -26,7 +26,7 @@ import com.example.repository.NoticeRepository;
 import com.example.util.ExcelView;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/servlet/notice")
 public class NoticeController {
 
 	private static final Logger log = LoggerFactory.getLogger(NoticeController.class);
