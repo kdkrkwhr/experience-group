@@ -9,6 +9,10 @@ var goMenu = function(idx) {
 	location.href = "/experience/board/" + idx;
 }
 
+function expMember(idx) {
+	location.href = "/member/applylist/" + idx;
+}
+
 function delMenu(idx){
 	var delCon = confirm("해당 게시글을 지우시겠습니까?");
 
@@ -92,6 +96,9 @@ function delMenu(idx){
 									<span>신청</span>
 								</div>
 								<c:if test="${not empty sessionAdmin }">
+									<div onclick="expMember(${board.experienceNo});">
+										<span>신청자 명단</span>
+									</div>
 									<div onclick="delMenu(${board.experienceNo});">
 										<span>삭제</span>
 									</div>

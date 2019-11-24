@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,22 @@ public class ExpMemberController {
 
 	@Autowired
 	private ExpMemberRepository expMemberRepository;
+
+	@RequestMapping(value="/applylist/{idx}", method=RequestMethod.GET)
+	public String getExpMembers(@PathVariable("idx") int idx, Model model) {
+		List<ExpMember> list = new ArrayList<ExpMember>();
+
+		try {
+
+			list = expMemberRepository.findAll();
+			model.addAttribute("memberList", list);
+
+		} catch(Exception e) {
+			LOGGER.info("EXP_MEM LIST / ERROR {}", e.getMessage());
+		}
+
+		return "expeMemberList";
+	}
 
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public ResponseEntity<String> postExpMember(@RequestBody ExpMember reqMember) {

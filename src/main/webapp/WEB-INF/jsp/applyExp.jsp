@@ -5,11 +5,7 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
-<script>
-	var insert = function() {
-		alert("insert 버튼 클릭");
-	}
-</script>
+<script src="/resources/js/use/applyExp.js"></script>
 <!-- ##### Catagory ##### --> 
  
 <!-- ##### Popular Course Area Start ##### -->
@@ -28,6 +24,7 @@
 					<div class="col-12">
 						<div class="forms">
 							<h4>${cat } / ${exp.prdName }</h4>
+							<input type="hidden" id="experienceNo" name="experienceNo" value="${exp.experienceNo }"/>
 							<div class="row">
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
@@ -73,7 +70,7 @@
 								</div>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
-										<input type="button" class="btn w-100" id="registerBtn" name="registerBtn" value="신청하기">
+										<input type="button" class="btn w-100" id="applyBtn" name="applyBtn" value="신청하기">
 								</div>
 							</div>
 						</div>

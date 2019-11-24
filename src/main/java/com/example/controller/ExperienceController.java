@@ -31,7 +31,7 @@ public class ExperienceController {
 	public String main(Model model) {
 		log.info("메인 화면");
 		model.addAttribute("expList", er.mainBoardSelect());
-		return "index";
+		return "exp";
 	}
 
 	/**
