@@ -1,8 +1,7 @@
 package com.example.controller;
 
 import java.io.File;
-import java.util.Enumeration;
-import java.util.Iterator;
+import java.time.LocalDateTime;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -166,46 +165,37 @@ public class NoticeController {
 	public String noticeAdd(@RequestParam("input_file") MultipartFile file, MultipartHttpServletRequest request, Model model) {
 		log.info("NOTICE REGISTER REST API");
 		try {
-			log.info("PARAM START");
-			Enumeration<String> params = request.getParameterNames();
-			while(params.hasMoreElements()) {
-				String param = params.nextElement();
-				log.info(param + " : " + request.getParameter(param));
-			}
+			String uploadPath = request.getSession().getServletContext().getRealPath(File.separator + "uploads");
+			String fileFullPath = uploadPath + File.separator + file.getOriginalFilename();
+			String subject = request.getParameter("subject");
+			String content = request.getParameter("content");
+			LocalDateTime date = LocalDateTime.now();
 			
-			log.info("PARAM END, FILE START");
-			Iterator<String> iterator = request.getFileNames();
-			while(iterator.hasNext()) {
-				log.info(iterator.next());
-			}
-			log.info("FILE END");
-			
-			log.info("MultipartFile START");
-			log.info("project Pth : " +  request.getSession().getServletContext().getRealPath(File.separator + "uploads"));
-			log.info(file.getName());
-			if (!new File(request.getSession().getServletContext().getRealPath(File.separator + "uploads")).exists()) {
-				File folder = new File(request.getSession().getServletContext().getRealPath(File.separator + "uploads"));
+			File folder = new File(uploadPath);
+			if (!folder.exists()) {
 				folder.mkdir();
 			}
+			
 			if (!file.getOriginalFilename().isEmpty()) {
-				file.transferTo(new File(request.getSession().getServletContext().getRealPath(File.separator + "uploads") + File.separator + file.getOriginalFilename()));
+				file.transferTo(new File(fileFullPath));
 			}
+			
+			//db
+			noticeRepository.save(
+					Notice.builder()
+					.subject(subject)
+					.content(content)
+					.regDate(date.toString())
+					.filePath(fileFullPath)
+					.build());
+			
+			model.addAttribute("msg", SUCCESS);
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("msg", e.getMessage());
+			return "forward:/notice/noticeList";
 		}
-		/*
-		 * try {
-		 * 
-		 * LocalDateTime date = LocalDateTime.now(); noticeRepository.save(
-		 * Notice.builder() .subject(reqNotice.getSubject())
-		 * .content(reqNotice.getContent()) .regDate(date.toString())
-		 * .filePath(reqNotice.getFilePath()) .build());
-		 * 
-		 * } catch(Exception e) { return new ResponseEntity<>(e.getMessage(),
-		 * HttpStatus.NOT_FOUND); }
-		 */
-
-		return "redirect:noticeList?sort=noticeNo,desc&size=5";
+		return "forward:/notice/noticeList";
 	}
 
 }
