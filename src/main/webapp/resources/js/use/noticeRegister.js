@@ -28,37 +28,48 @@ $().ready(function() {
 	});
 
 	$('#registerBtn').click(function() {
-		$.ajax({
-			method : "POST",
-			url : pageUrl + "notice/api/register",
-			data : JSON.stringify({
-				subject : $('#subject').val(),
-				content : $('#content').val(),
-				filePath : ""
-			}),
-			contentType : "application/json; charset=utf-8",
-			success : function() {
-				alert("공지사항이 등록 되었습니다.");
-				location.href = "/notice/list?sort=noticeNo,desc&size=5";
-			}
-		});
+		if (valid()) {
+			$.ajax({
+				method : "POST",
+				url : pageUrl + "notice/api/register",
+				data : JSON.stringify({
+					subject : $('#subject').val(),
+					content : $('#content').val(),
+					filePath : ""
+				}),
+				contentType : "application/json; charset=utf-8",
+				success : function() {
+					alert("공지사항이 등록 되었습니다.");
+					location.href = "/notice/list?sort=noticeNo,desc&size=5";
+				}
+			});
+		}
 	});
 
 	$('#updateBtn').click(function() {
-		var noticeNo = $('#noticeNo').val();
-		$.ajax({
-			method : "PUT",
-			url : pageUrl + "notice/api/update/" + noticeNo,
-			data : JSON.stringify({
-				subject : $('#subject').val(),
-				content : $('#content').val(),
-				filePath : ""
-			}),
-			contentType : "application/json; charset=utf-8",
-			success : function() {
-				alert("공지사항이 수정 되었습니다.");
-				location.href = "/notice/list?sort=noticeNo,desc&size=5";
-			}
-		});
-	})
-})
+		if (valid()) {
+			var noticeNo = $('#noticeNo').val();
+			$.ajax({
+				method : "PUT",
+				url : pageUrl + "notice/api/update/" + noticeNo,
+				data : JSON.stringify({
+					subject : $('#subject').val(),
+					content : $('#content').val(),
+					filePath : ""
+				}),
+				contentType : "application/json; charset=utf-8",
+				success : function() {
+					alert("공지사항이 수정 되었습니다.");
+					location.href = "/notice/list?sort=noticeNo,desc&size=5";
+				}
+			});
+		}
+	});
+});
+
+function valid() {
+	if ($("#subject").val().length() > 30) {
+		return false;
+	}
+	return true;
+}
