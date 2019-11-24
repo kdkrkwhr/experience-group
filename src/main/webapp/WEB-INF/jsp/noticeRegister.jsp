@@ -23,7 +23,7 @@
 						<div class="forms">
 							<h4>${cat }</h4>
 							<div class="row">
-								<form name="form" id="form" method="post" enctype="multipart/form-data" action="/notice/api/register">
+								<form name="form" id="form" method="post" enctype="multipart/form-data" action="/servlet/notice/api/register">
 								<input type="hidden" id="noticeNo" name="noticeNo" value="${notice.noticeNo }"/>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
