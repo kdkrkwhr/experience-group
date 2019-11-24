@@ -29,21 +29,6 @@ public class ExpMemberController {
 	@Autowired
 	private ExpMemberRepository expMemberRepository;
 
-	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public List<ExpMember> getExpMembers(Model model) {
-		List<ExpMember> list = new ArrayList<ExpMember>();
-
-		try {
-
-			list = expMemberRepository.findAll();
-
-		} catch(Exception e) {
-			LOGGER.info("EXP_MEM LIST / ERROR {}", e.getMessage());
-		}
-
-		return list;
-	}
-
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public ResponseEntity<String> postExpMember(@RequestBody ExpMember reqMember) {
 

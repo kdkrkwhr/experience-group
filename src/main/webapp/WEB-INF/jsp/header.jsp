@@ -64,10 +64,7 @@
 						<!-- Nav Start -->
 						<div class="classynav">
 							<ul>
-								
-								<li><a href="/experience/board">신청자 명단</a></li>
 								<li><a href="/experience/board">체험단 신청하기</a></li>
-								<li><a href="#">체험단 일정 안내</a>
 								<li><a href="/notice/list?sort=noticeNo,desc&size=5">공지사항</a></li>
 							</ul>
 						</div>
