@@ -8,6 +8,7 @@
 <script src="/resources/js/use/noticeRegister.js"></script>
 <!-- ##### Catagory ##### -->
 <!-- ##### Popular Course Area Start ##### -->
+<form name="form" id="form" method="post" enctype="multipart/form-data" action="/servlet/notice/api/register">
 <section
 	class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
 	style="padding-top: 30px; padding-bottom: 33px; background: #651441;">
@@ -23,7 +24,7 @@
 						<div class="forms">
 							<h4>${cat }</h4>
 							<div class="row">
-								<form name="form" id="form" method="post" enctype="multipart/form-data" action="/servlet/notice/api/register">
+								
 								<input type="hidden" id="noticeNo" name="noticeNo" value="${notice.noticeNo }"/>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
@@ -51,7 +52,7 @@
 									style="background: rgba(0,123,255,.25);">
 										<input type="button" class="btn w-100" id="${btnId }" name="${btnId }" value="${btnCat }">
 								</div>
-								</form>
+								
 							</div>
 						</div>
 					</div>
@@ -60,7 +61,7 @@
 		</div>
 	</div>
 </section>
-
+</form>
 <!-- ##### Popular Course Area End ##### -->
 
 <!-- ##### Footer Area Start ##### -->
