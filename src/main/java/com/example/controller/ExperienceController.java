@@ -23,19 +23,6 @@ public class ExperienceController {
 	ExperienceRepository er;
 
 	/**
-	 * 메인 화면
-	 * 최신 순으로 정렬하여 보여준다.
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String main(Model model) {
-		log.info("메인 화면");
-		model.addAttribute("expList", er.mainBoardSelect());
-		return "index";
-	}
-
-	/**
 	 * 체험단 신청하기 게시글 목록 화면
 	 * 최신 순으로 정렬하여 보여준다.
 	 * @param model

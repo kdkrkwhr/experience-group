@@ -46,6 +46,12 @@ public class ExpMemberController {
 		return "expMemberList";
 	}
 
+	@RequestMapping(value="/api/check/{idx}", method=RequestMethod.GET)
+	public ResponseEntity<String> checkCntExpMember(@PathVariable("idx") int idx) {
+		
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
 	@RequestMapping(value="/api/register", method=RequestMethod.POST)
 	public ResponseEntity<String> postExpMember(@RequestBody ExpMember reqMember) {
 
@@ -76,9 +82,7 @@ public class ExpMemberController {
 	public ResponseEntity<String> cntExpMember(@PathVariable("idx") int idx) {
 
 		try {
-			LOGGER.info("?111?");
 			expMemberRepository.expCntUp(idx);
-			LOGGER.info("?222?");
 		} catch (Exception e) {
 
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
