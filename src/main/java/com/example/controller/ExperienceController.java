@@ -21,6 +21,7 @@ public class ExperienceController {
 
 	@Autowired
 	ExperienceRepository er;
+
 	/**
 	 * 메인 화면
 	 * 최신 순으로 정렬하여 보여준다.
@@ -31,7 +32,7 @@ public class ExperienceController {
 	public String main(Model model) {
 		log.info("메인 화면");
 		model.addAttribute("expList", er.mainBoardSelect());
-		return "exp";
+		return "index";
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class ExperienceController {
 	public String noticeList(Model model) {
 		log.info("체험단 신청하기 게시글 목록");
 		model.addAttribute("expList", er.ExperienceBoardSelect());
-		return "exp";
+		return "index";
 	}
 	
 	/**

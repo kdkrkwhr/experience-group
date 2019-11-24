@@ -32,21 +32,21 @@ public class ExpMemberController {
 
 	@RequestMapping(value="/applylist/{idx}", method=RequestMethod.GET)
 	public String getExpMembers(@PathVariable("idx") int idx, Model model) {
-		List<ExpMember> list = new ArrayList<ExpMember>();
+		List<ExpMember> memberList = new ArrayList<ExpMember>();
 
 		try {
 
-			list = expMemberRepository.findAll();
-			model.addAttribute("memberList", list);
+			memberList = expMemberRepository.expList(idx);
+			model.addAttribute("memberList", memberList);
 
 		} catch(Exception e) {
 			LOGGER.info("EXP_MEM LIST / ERROR {}", e.getMessage());
 		}
 
-		return "expeMemberList";
+		return "expMemberList";
 	}
 
-	@RequestMapping(value="/add", method=RequestMethod.POST)
+	@RequestMapping(value="/api/register", method=RequestMethod.POST)
 	public ResponseEntity<String> postExpMember(@RequestBody ExpMember reqMember) {
 
 		LOGGER.info("EXP_MEM_ADD");
@@ -71,4 +71,19 @@ public class ExpMemberController {
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
+
+	@RequestMapping(value="/api/cntupdate/{idx}", method=RequestMethod.POST)
+	public ResponseEntity<String> cntExpMember(@PathVariable("idx") int idx) {
+
+		try {
+			LOGGER.info("?111?");
+			expMemberRepository.expCntUp(idx);
+			LOGGER.info("?222?");
+		} catch (Exception e) {
+
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
 }
