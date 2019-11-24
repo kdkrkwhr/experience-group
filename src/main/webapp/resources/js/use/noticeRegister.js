@@ -68,7 +68,9 @@ $().ready(function() {
 });
 
 function valid() {
-	if ($("#subject").val().length() > 30) {
+	if ($("#subject").val().length > 30) {
+		alert("제목 길이는 30자 이하로 작성해주세요.");
+		$("#subject").focus();
 		return false;
 	}
 	return true;
