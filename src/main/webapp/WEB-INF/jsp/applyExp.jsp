@@ -28,6 +28,12 @@
 							<div class="row">
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
+										<strong>체험단 타입</strong> <input type="text" class="form-control"
+											name="blogAddress" id="blogAddress" value="${exp.type }" readonly="readonly"/>
+									</div>
+								</div>
+								<div class="col-12 col-lg-12">
+									<div class="form-group">
 										<strong>블로그 주소</strong> <input type="text" class="form-control"
 											name="blogAddress" id="blogAddress" placeholder="블로그 주소" />
 									</div>
@@ -41,7 +47,7 @@
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>이름</strong> <input type="text" class="form-control"
-											name="name" id="name" placeholder="제 목" />
+											name="name" id="name" placeholder="이 름" />
 									</div>
 								</div>
 								<div class="col-12 col-lg-12">

@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@org.hibernate.annotations.DynamicUpdate
 public class ExpMember {
 
    @Id
