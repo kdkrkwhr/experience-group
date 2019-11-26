@@ -63,9 +63,9 @@
 						</div>
 					</div>
 					<div class="col-2">
-						<div class="load-more">
+						<!-- <div class="load-more">
 							<span class="btn clever-btn" onclick = "excelDownload()">엑셀 다운로드</span>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<hr/>
