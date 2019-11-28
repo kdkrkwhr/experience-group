@@ -1,4 +1,4 @@
-<!-- 공지사항  목록 페이지  -->
+<!-- 체험단 신청자 목록 페이지  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 

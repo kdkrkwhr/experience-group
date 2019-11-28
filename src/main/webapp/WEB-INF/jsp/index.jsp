@@ -55,7 +55,7 @@ function delMenu(idx){
 			<div class="row">
 				<div class="col-2">
 					<div class="load-more">
-						<a href="/servlet/notice/new" class="btn clever-btn">게시글 등록</a>
+						<a href="/servlet/experience/new" class="btn clever-btn">게시글 등록</a>
 					</div>
 				</div>
 			</div>

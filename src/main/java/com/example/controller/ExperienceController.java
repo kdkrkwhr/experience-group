@@ -28,6 +28,22 @@ public class ExperienceController {
 	 * @param model
 	 * @return
 	 */
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public String registerPage(Model model) {
+		log.info("체험단 신청하기 게시글 목록");
+
+		model.addAttribute("cat", "등록");
+		model.addAttribute("btnId", "btnRegister");
+		model.addAttribute("btnCat", "등록");
+		return "expRegister";
+	}
+	
+	/**
+	 * 체험단 신청하기 게시글 목록 화면
+	 * 최신 순으로 정렬하여 보여준다.
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String noticeList(Model model) {
 		log.info("체험단 신청하기 게시글 목록");
