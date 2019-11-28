@@ -45,14 +45,14 @@ public class Experience {
 	private String content;
 
 	@Builder
-	public Experience(String subject, String type, int appli_cnt, int recrut_cnt, String reg_date, String prd_name, String content) {
+	public Experience(String subject, String type, int appliCnt, int recrutCnt, String regDate, String prdName, String content) {
 
 		this.subject	= subject;
 		this.type		= type;
-		this.appliCnt	= appli_cnt;
-		this.recrutCnt	= recrut_cnt;
-		this.regDate	= reg_date;
-		this.prdName	= prd_name;
+		this.appliCnt	= appliCnt;
+		this.recrutCnt	= recrutCnt;
+		this.regDate	= regDate;
+		this.prdName	= prdName;
 		this.content	= content;
 	}
 }

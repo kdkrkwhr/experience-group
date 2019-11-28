@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.time.LocalDateTime;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.model.Experience;
 import com.example.repository.ExperienceRepository;
 
 @Controller
@@ -23,8 +27,7 @@ public class ExperienceController {
 	ExperienceRepository er;
 
 	/**
-	 * 체험단 신청하기 게시글 목록 화면
-	 * 최신 순으로 정렬하여 보여준다.
+	 * 체험단 신청하기 게시글 등록 화면
 	 * @param model
 	 * @return
 	 */
@@ -69,6 +72,69 @@ public class ExperienceController {
 		return "applyExp";
 	}
 
+	/**
+	 * 체험단 신청글 등록 API
+	 * 
+	 * @param model, @RequestBody Experience req
+	 * @return
+	 */
+	@RequestMapping(value="/api/register", method=RequestMethod.POST)
+	public ResponseEntity<String> insertExp(@RequestBody Experience req) {
+		String msg = "";
+
+		try {
+
+			LocalDateTime date = LocalDateTime.now();
+			er.save(Experience.builder()
+					.subject(req.getSubject())
+					.type(req.getType())
+					.appliCnt(req.getAppliCnt())
+					.recrutCnt(req.getRecrutCnt())
+					.regDate(date.toString())
+					.prdName(req.getPrdName())
+					.content(req.getContent())
+					.build());
+
+			msg = "SUCCESS";
+
+		} catch(Exception e) {
+			msg = e.getMessage();
+		}
+
+		return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
+
+	/**
+	 * 체험단 신청글 수정 API
+	 * 
+	 * @param model, @RequestBody Experience req
+	 * @return
+	 */
+	@RequestMapping(value="/api/update/{idx}", method=RequestMethod.PUT)
+	public ResponseEntity<String> updateExp(@PathVariable("idx") int idx, @RequestBody Experience req) {
+		String msg = "";
+		
+		try {
+			Experience experience = er.findById(idx).get();
+			experience.setSubject(req.getSubject());
+			experience.setType(req.getType());
+			experience.setRecrutCnt(req.getRecrutCnt());
+			er.save(experience);
+			msg = "SUCCESS";
+
+		} catch(Exception e) {
+			msg = e.getMessage();
+		}
+
+		return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
+
+	/**
+	 * 체험단 신청글 삭제 API
+	 * 
+	 * @PathVariable int idx
+	 * @return
+	 */
 	@RequestMapping(value="/api/delete/{idx}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> delExp(@PathVariable("idx") int idx) {
 		String msg = "";
@@ -78,8 +144,9 @@ public class ExperienceController {
 			
 			msg = "SUCCESS";
 		} catch(Exception e) {
-			msg = "ERROR";
+			msg = e.getMessage();
 		}
+
 		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 }

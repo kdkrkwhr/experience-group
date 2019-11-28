@@ -179,7 +179,7 @@ public class NoticeController {
 			if (!file.getOriginalFilename().isEmpty()) {
 				file.transferTo(new File(fileFullPath));
 			}
-			
+
 			//db
 			noticeRepository.save(
 					Notice.builder()
@@ -188,7 +188,7 @@ public class NoticeController {
 					.regDate(date.toString())
 					.filePath(fileFullPath)
 					.build());
-			
+
 			model.addAttribute("msg", SUCCESS);
 		} catch (Exception e) {
 			e.printStackTrace();
