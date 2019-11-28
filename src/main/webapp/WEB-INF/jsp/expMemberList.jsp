@@ -30,6 +30,12 @@ table.customTable thead {
 	background-color: #651441;
 }
 </style>
+<c:if test="${empty sessionAdmin }">
+<script>
+alert("로그인 후 게시글 작성이 가능합니다.");
+location.href = '/';
+</script>
+</c:if>
 <!-- ##### Catagory ##### -->
 <div
 	class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"

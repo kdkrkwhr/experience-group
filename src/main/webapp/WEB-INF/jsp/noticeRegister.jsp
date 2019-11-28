@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="/resources/css/main.css">
 <script src="/resources/js/use/noticeRegister.js"></script>
 <!-- ##### Catagory ##### -->
+<c:if test="${empty sessionAdmin }">
+<script>
+alert("로그인 후 게시글 작성이 가능합니다.");
+location.href = '/';
+</script>
+</c:if>
 <!-- ##### Popular Course Area Start ##### -->
 <form name="form" id="form" method="post" enctype="multipart/form-data" action="/servlet/notice/api/register">
 <section
