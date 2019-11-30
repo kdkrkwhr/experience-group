@@ -45,13 +45,13 @@ public class MemberExcelView {
 				cell1.setCellValue("이메일");
 				Cell cell2 = row.createCell(2);
 				cell2.setCellValue("연락처");
-				Cell cell3 = row.createCell(2);
+				Cell cell3 = row.createCell(3);
 				cell3.setCellValue("블로그주소");
-				Cell cell4 = row.createCell(2);
+				Cell cell4 = row.createCell(4);
 				cell4.setCellValue("주소");
-				Cell cell5 = row.createCell(2);
+				Cell cell5 = row.createCell(5);
 				cell5.setCellValue("상품명");
-				Cell cell6 = row.createCell(2);
+				Cell cell6 = row.createCell(6);
 				cell6.setCellValue("메모");
 				excelname++;
 
