@@ -94,7 +94,7 @@ function delMenu(idx){
 									style="cursor: pointer;">
 								<c:if test="${board.recrutCnt - board.appliCnt > 0}">
 									<div onclick="javascript:goMenu(${board.experienceNo})">
-										<span>신청</span>
+										<span>체험단 신청하기</span>
 									</div>
 								</c:if>
 								<c:if test="${not empty sessionAdmin }">

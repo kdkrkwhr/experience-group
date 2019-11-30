@@ -79,7 +79,8 @@
 								</div>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
-										<input type="button" class="btn w-100" id="applyBtn" name="applyBtn" value="신청하기">
+										<input type="button" class="btn w-100" id="applyBtn" name="applyBtn" value="신청하기"
+										style="background:#651441; color: white;">
 								</div>
 							</div>
 						</div>

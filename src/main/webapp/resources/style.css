@@ -1731,13 +1731,13 @@ textarea:focus {
     z-index: -1; }
   .clever-catagory h3 {
     text-align: left;
-    font-size: 30px;
+    font-size: 40px;
     text-transform: uppercase;
     letter-spacing: 0.75px;
     color: #ffffff; }
   .clever-catagory h6 {
     text-align: left;
-    font-size: 12px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 0.75px;
     color: #ffffff; }
