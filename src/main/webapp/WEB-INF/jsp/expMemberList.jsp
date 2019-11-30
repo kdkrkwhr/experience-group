@@ -6,7 +6,7 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
-<script src="/resources/js/use/noticeList.js"></script>
+<script src="/resources/js/use/expMemberList.js"></script>
 <style>
 table.customTable {
 	width: 100%;

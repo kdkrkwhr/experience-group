@@ -3,7 +3,7 @@
  */
 
 var pageUrl = window.location.hostname;
-pageUrl = "http://" + pageUrl + ":8080";
+pageUrl = "http://" + pageUrl + "";
 
 $().ready(function() {
 	$('#loginBtn').click(function() {
