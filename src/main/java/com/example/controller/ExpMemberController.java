@@ -19,6 +19,8 @@ import com.example.model.ExpMember;
 import com.example.model.Experience;
 import com.example.repository.ExpMemberRepository;
 import com.example.repository.ExperienceRepository;
+import com.example.util.ExcelView;
+import com.example.util.MemberExcelView;
 
 @Controller
 @RequestMapping("/servlet/member")
@@ -42,8 +44,8 @@ public class ExpMemberController {
 		try {
 
 			memberList = expMemberRepository.expList(idx);
+			model.addAttribute("idx", idx);
 			model.addAttribute("memberList", memberList);
-
 		} catch(Exception e) {
 			LOGGER.info("EXP_MEM LIST / ERROR {}", e.getMessage());
 		}
@@ -108,9 +110,10 @@ public class ExpMemberController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/api/excel", method=RequestMethod.GET)
-	public ResponseEntity<String> memberExcel() {
-		
+	@RequestMapping(value="/api/excel/{idx}", method=RequestMethod.POST)
+	public ResponseEntity<String> memberExcel(@PathVariable("idx") int idx) throws Exception {
+		List<ExpMember> memberList = expMemberRepository.expList(idx);
+		MemberExcelView.writeNoticeListToFile("member.xlsx", memberList);
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 }

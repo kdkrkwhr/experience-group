@@ -51,6 +51,7 @@ location.href = '/';
 </div>
 <!-- ##### Popular Course Area Start ##### -->
 <div class="limiter">
+	<input type="hidden" value="${idx }" id="idx" name="idx"/>
 	<div class="container-table100" style="margin-top: 45px">
 		<div class="wrap-table100">
 			<table class="customTable">

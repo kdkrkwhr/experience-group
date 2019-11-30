@@ -7,8 +7,8 @@ function excelDownload() {
 
 	if (excelDownloadCon) {
 		$.ajax({
-			method : "GET",
-			url : pageUrl + "/servlet/member/api/excel",
+			method : "POST",
+			url : pageUrl + "/servlet/member/api/excel/" + $('#idx').val(),
 			success : function() {
 				console.log("EXCEL_DOWNLOAD");
 			}
