@@ -19,7 +19,7 @@ function delMenu(idx){
 	if (delCon) {
 		$.ajax({
 	        method: "DELETE",
-	        url: pageUrl + "servlet/experience/api/delete/" + idx,
+	        url: pageUrl + "/servlet/experience/api/delete/" + idx,
 	        success: function() {
 	        	alert('게시글이 지워졌습니다.');
 	        	location.reload();

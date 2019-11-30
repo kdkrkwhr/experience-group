@@ -99,7 +99,7 @@ iframe {
 
 .row-t.header {
 	color: #ffffff;
-	background: #7d7d6c;
+	background: #808080;
 }
 
 @media screen and (max-width: 768px) {
@@ -131,16 +131,16 @@ iframe {
 	display: table-cell;
 }
 
-input.upload_text {/*ÀÐ±âÀü¿ë ÀÎÇ²ÅØ½ºÆ®*/
+input.upload_text {/*ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç²ï¿½Ø½ï¿½Æ®*/
 	float:left;
-	width:110px;/* ¹öÆ° Æ÷ÇÔ ÀüÃ¼ °¡·Î ±æÀÌ*/
+	width:110px;/* ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 	height:19px;
 	line-height:19px;
 	padding:0 3px;
 	border:1px solid #bbb;
 }
 
-div.upload-btn_wrap input.input_file {/*ÆÄÀÏÃ£±â Æû Åõ¸íÇÏ°Ô*/
+div.upload-btn_wrap input.input_file {/*ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½*/
 	position:absolute;
 	top:0;
 	right:0;
@@ -150,15 +150,15 @@ div.upload-btn_wrap input.input_file {/*ÆÄÀÏÃ£±â Æû Åõ¸íÇÏ°Ô*/
 	-ms-filter:"alpha(opacity=0)";
 	-moz-opacity:0;
 }
-div.upload-btn_wrap {/*¹öÆ°Å×µÎ¸® °¨½Ñ div*/
+div.upload-btn_wrap {/*ï¿½ï¿½Æ°ï¿½×µÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ div*/
 	overflow:hidden;
 	position:relative;
 	float:left;
-	width:70px;/*width, height °ªÀº button(Ã£¾Æº¸±â)°ª°ú °°¾Æ¾ßÇÔ */
+	width:70px;/*width, height ï¿½ï¿½ï¿½ï¿½ button(Ã£ï¿½Æºï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½ï¿½ */
 	height:21px;
 	padding-left:3px;
 }
-div.upload-btn_wrap button {/*¹öÆ° div*/
+div.upload-btn_wrap button {/*ï¿½ï¿½Æ° div*/
 	width:70px;
 	height:21px;
 	font-weight:bold;
