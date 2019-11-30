@@ -1,6 +1,8 @@
 package com.example.controller;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,13 +86,16 @@ public class ExperienceController {
 
 		try {
 
-			LocalDateTime date = LocalDateTime.now();
+			SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd / HH:mm");
+			Date dateTime = new Date();
+			String date = format.format(dateTime);
+
 			er.save(Experience.builder()
 					.subject(req.getSubject())
 					.type(req.getType())
 					.appliCnt(req.getAppliCnt())
 					.recrutCnt(req.getRecrutCnt())
-					.regDate(date.toString())
+					.regDate(date)
 					.prdName(req.getPrdName())
 					.content(req.getContent())
 					.build());
@@ -138,7 +143,6 @@ public class ExperienceController {
 	@RequestMapping(value="/api/delete/{idx}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> delExp(@PathVariable("idx") int idx) {
 		String msg = "";
-
 		try {
 			er.deleteById(idx);
 			
