@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Notice;
 import com.example.repository.NoticeRepository;
@@ -204,14 +205,19 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/fileDownload", method = RequestMethod.GET)
-	public void fileDownload(HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+	public ResponseEntity<String> fileDownload(HttpSession session, HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) throws Exception {
 		FileDownload download = new FileDownload();
 		String filePath = (String)request.getParameter("filePath");
 		String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
 		
+		filePath = filePath.substring(0, filePath.lastIndexOf("/")) + "/";
+		
+		
 		download.filDown(request, response, filePath, fileName, fileName);
 		
 		log.info("ControllerFilePath : " + request.getParameter("filePath"));
+		
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 }

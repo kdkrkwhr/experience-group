@@ -22,6 +22,18 @@ if (filePath != null && filePath != "") {
 	}
 }
 %>
+<script>
+	$(function() {
+		$("#fileDownload").on("click", function() {
+			$.ajax({
+		        method : "GET",
+				url : pageUrl + "/servlet/notice/fileDownload?filePath="+"<%=filePath%>"
+		    }).done(function(res) {
+			    console.log("res", res);
+			});
+		});
+	});
+</script>
 <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
 	style="padding-top: 30px; padding-bottom: 33px; background: #651441;">
 	<!-- Register Contact Form -->
@@ -55,7 +67,7 @@ if (filePath != null && filePath != "") {
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>첨부파일 : </strong>
-										<a href="<%="/servlet/notice/fileDownload?filePath="+filePath%>"><%=fileName %></a>
+										<a id="fileDownload" href="#"><%=fileName %></a>
 									</div>
 								</div>
 								<% } %>
