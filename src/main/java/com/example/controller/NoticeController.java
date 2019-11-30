@@ -208,12 +208,12 @@ public class NoticeController {
 	public String fileDownload(HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		//FileDownload download = new FileDownload();
 		String filePath = (String)request.getParameter("filePath");
+		model.addAttribute("filePath", filePath);
 		//String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
 		filePath = filePath.substring(0, filePath.lastIndexOf("/")) + "/";
 		//download.filDown(request, response, filePath, fileName, fileName);
 		log.info("ControllerFilePath : " + request.getParameter("filePath"));
 		//return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-		
 		return "fileDownload";
 	}
 
