@@ -73,7 +73,7 @@ if (filePath != null && filePath != "") {
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>첨부파일 : </strong>
-										<a id="fileDownload" href="<%="/servlet/notice/fileDownload/" + filePath%>"><%=fileName %></a>
+										<a id="fileDownload" href="<%="/servlet/notice/fileDownload?filePath=" + filePath%>"><%=fileName %></a>
 									</div>
 								</div>
 								<% } %>
