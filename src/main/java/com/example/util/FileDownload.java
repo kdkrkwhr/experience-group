@@ -25,7 +25,12 @@ public class FileDownload {
 			OutputStream out = response.getOutputStream();
 			FileInputStream fis = null;
 			fis = new FileInputStream(file);
-			FileCopyUtils.copy(fis, out);
+			//FileCopyUtils.copy(fis, out);
+			byte[] buffer = new byte[1024]; 
+            int length = 0; 
+            while((length = fis.read(buffer)) > 0) {
+            	out.write(buffer,0,length); 
+            }
 			if (fis != null)
 				fis.close();
 			out.flush();

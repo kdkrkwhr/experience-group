@@ -25,12 +25,18 @@ if (filePath != null && filePath != "") {
 <script>
 	$(function() {
 		$("#fileDownload").on("click", function() {
-			$.ajax({
-		        method : "GET",
-				url : pageUrl + "/servlet/notice/fileDownload?filePath="+"<%=filePath%>"
-		    }).done(function(res) {
-			    console.log("res", res);
-			});
+			var req = new XMLHttpRequest();
+	     	req.open("GET", "/servlet/notice/fileDownload?filePath="+"<%=filePath%>", true);
+	    	req.responseType = "blob";
+	     	req.onload = function (event) {
+		        var blob = req.response;
+		        var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
+		        var link=document.createElement('a');
+		        link.href=window.URL.createObjectURL(blob);
+		        link.download=fileName;
+		        link.click();
+	     	};
+     		req.send();
 		});
 	});
 </script>
@@ -67,7 +73,7 @@ if (filePath != null && filePath != "") {
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>첨부파일 : </strong>
-										<a id="fileDownload" href="#"><%=fileName %></a>
+										<a id="fileDownload" href="<%="/servlet/notice/fileDownload/" + filePath%>"><%=fileName %></a>
 									</div>
 								</div>
 								<% } %>

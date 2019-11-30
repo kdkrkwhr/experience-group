@@ -205,19 +205,16 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/fileDownload", method = RequestMethod.GET)
-	public ResponseEntity<String> fileDownload(HttpSession session, HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) throws Exception {
-		FileDownload download = new FileDownload();
+	public String fileDownload(HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+		//FileDownload download = new FileDownload();
 		String filePath = (String)request.getParameter("filePath");
-		String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
-		
+		//String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
 		filePath = filePath.substring(0, filePath.lastIndexOf("/")) + "/";
-		
-		
-		download.filDown(request, response, filePath, fileName, fileName);
-		
+		//download.filDown(request, response, filePath, fileName, fileName);
 		log.info("ControllerFilePath : " + request.getParameter("filePath"));
+		//return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		
-		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		return "fileDownload";
 	}
 
 }
