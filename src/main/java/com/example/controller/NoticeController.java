@@ -4,6 +4,8 @@ import java.io.File;
 import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.example.model.Notice;
 import com.example.repository.NoticeRepository;
 import com.example.util.ExcelView;
+import com.example.util.FileDownload;
 
 @Controller
 @RequestMapping("/servlet/notice")
@@ -201,10 +204,14 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/fileDownload", method = RequestMethod.GET)
-	public String fileDownload(HttpServletRequest request, Model model) throws Exception {
-		model.addAttribute(request.getParameter("filePath"));
+	public void fileDownload(HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+		FileDownload download = new FileDownload();
+		String filePath = (String)request.getParameter("filePath");
+		String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
+		
+		download.filDown(request, response, filePath, fileName, fileName);
+		
 		log.info("ControllerFilePath : " + request.getParameter("filePath"));
-		return "fileDownload";
 	}
 
 }
