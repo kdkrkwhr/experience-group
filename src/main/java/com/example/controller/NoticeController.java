@@ -3,6 +3,8 @@ package com.example.controller;
 import java.io.File;
 import java.time.LocalDateTime;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -196,6 +198,13 @@ public class NoticeController {
 			return "forward:/notice/noticeList";
 		}
 		return "forward:/notice/noticeList";
+	}
+	
+	@RequestMapping(value = "/fileDownload", method = RequestMethod.GET)
+	public String fileDownload(HttpServletRequest request, Model model) throws Exception {
+		model.addAttribute(request.getParameter("filePath"));
+		log.info("ControllerFilePath : " + request.getParameter("filePath"));
+		return "fileDownload";
 	}
 
 }

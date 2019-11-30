@@ -3,10 +3,18 @@
 	pageEncoding="UTF-8"%>
 <!-- ##### Header Area Start ##### -->
 <%@ include file="./header.jsp"%>
+<%@ page import="com.example.model.Notice" %>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
 <!-- ##### Catagory ##### -->
 <!-- ##### Popular Course Area Start ##### -->
+<%
+String filePath = ((Notice)request.getAttribute("notice")).getFilePath();
+
+String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
+
+String realFilePath = filePath.substring(filePath.lastIndexOf("/uploads"), filePath.length());
+%>
 <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
 	style="padding-top: 30px; padding-bottom: 33px; background: #651441;">
 	<!-- Register Contact Form -->
@@ -36,11 +44,12 @@
 									</div>
 									<hr/><br/>
 								</div>
-<%-- 								<div class="col-12 col-lg-12">
+								<div class="col-12 col-lg-12">
 									<div class="form-group">
-										<strong>파일 경로 : ${notice.filePath }</strong>
+										<strong>첨부파일 : </strong>
+										<a href="<%="/servlet/notice/fileDownload?filePath="+filePath%>"><%=fileName %></a>
 									</div>
-								</div> --%>
+								</div>
 								<hr/>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
