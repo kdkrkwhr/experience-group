@@ -44,7 +44,7 @@
 
 					<!-- Logo -->
 					<a class="nav-brand" href="/"><img
-						src="/resources/img/core-img/k_logo2.png"></a>
+						src="/resources/img/core-img/logo.png"></a>
 
 					<!-- Navbar Toggler -->
 					<div class="classy-navbar-toggler">
@@ -65,7 +65,7 @@
 						<div class="classynav">
 							<ul>
 								<li><a href="/servlet/experience/board">체험단 신청하기</a></li>
-								<li><a href="/servlet/notice/list?sort=noticeNo,desc&size=5">공지사항</a></li>
+								<li style="margin-right: 170px;"><a href="/servlet/notice/list?sort=noticeNo,desc&size=5">공지사항</a></li>
 							</ul>
 						</div>
 					</div>
