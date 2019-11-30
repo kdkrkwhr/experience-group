@@ -108,4 +108,9 @@ public class ExpMemberController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
+	@RequestMapping(value="/api/excel", method=RequestMethod.GET)
+	public ResponseEntity<String> memberExcel() {
+		
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
 }

@@ -28,7 +28,6 @@ ul, li {
 /* ------------------------------------ */
 input {
 	display: block;
-	border: none !important;
 }
 
 textarea {
