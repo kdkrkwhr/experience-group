@@ -10,10 +10,17 @@
 <!-- ##### Popular Course Area Start ##### -->
 <%
 String filePath = ((Notice)request.getAttribute("notice")).getFilePath();
-
-String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
-
-String realFilePath = filePath.substring(filePath.lastIndexOf("/uploads"), filePath.length());
+String fileName = "";
+String realFilePath = "";
+if (filePath != null && filePath != "") {
+	if (filePath.lastIndexOf("/") != -1) {
+		fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
+		realFilePath = filePath.substring(filePath.lastIndexOf("/uploads"), filePath.length());
+	} else if (filePath.lastIndexOf("\\") != -1) {
+		fileName = filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.length());
+		realFilePath = filePath.substring(filePath.lastIndexOf("\\uploads"), filePath.length());
+	}
+}
 %>
 <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
 	style="padding-top: 30px; padding-bottom: 33px; background: #651441;">
@@ -44,12 +51,14 @@ String realFilePath = filePath.substring(filePath.lastIndexOf("/uploads"), fileP
 									</div>
 									<hr/><br/>
 								</div>
+								<% if (filePath != null && filePath != "") { %>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>첨부파일 : </strong>
 										<a href="<%="/servlet/notice/fileDownload?filePath="+filePath%>"><%=fileName %></a>
 									</div>
 								</div>
+								<% } %>
 								<hr/>
 								<div class="col-12" style="padding-top: 10px;"
 									style="background: rgba(0,123,255,.25);">
