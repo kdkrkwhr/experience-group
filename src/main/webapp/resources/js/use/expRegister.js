@@ -21,7 +21,7 @@ $().ready(function() {
 	$('.note-insert').remove();
 	$('.note-view').remove();
 
-	$('#registerBtn').click(function() {
+	$('#btnRegister').click(function() {
 		$.ajax({
 			method : "POST",
 			url : pageUrl + "/servlet/experience/api/register",

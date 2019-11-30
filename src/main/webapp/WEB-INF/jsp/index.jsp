@@ -73,11 +73,11 @@ function delMenu(idx){
 					<div class="single-popular-course mb-100 wow fadeInUp"
 						data-wow-delay="100ms">
 						<!-- Course Content -->
-						<div class="course-content">
+						<div class="course-content" style="height: 120px; overflow: auto;">
 							<h4>
 								<span style="cursor: pointer;" >${board.subject }</span>
 							</h4>
-							<p style="height: 50px; overflow: auto;">${board.content }</p>
+							<p>${board.content }</p>
 						</div>
 						<!-- Seat Rating Fee -->
 						<div class="seat-rating-fee d-flex justify-content-between">
@@ -92,9 +92,11 @@ function delMenu(idx){
 							</div>
 								<div class="seat-rating h-100 d-flex align-items-center"
 									style="cursor: pointer;">
-								<div onclick="javascript:goMenu(${board.experienceNo})">
-									<span>신청</span>
-								</div>
+								<c:if test="${board.recrutCnt - board.appliCnt > 0}">
+									<div onclick="javascript:goMenu(${board.experienceNo})">
+										<span>신청</span>
+									</div>
+								</c:if>
 								<c:if test="${not empty sessionAdmin }">
 									<div onclick="expMember(${board.experienceNo});">
 										<span>신청자 명단</span>

@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.model.ExpMember;
+import com.example.model.Experience;
 import com.example.repository.ExpMemberRepository;
+import com.example.repository.ExperienceRepository;
 
 @Controller
 @RequestMapping("/servlet/member")
@@ -29,6 +31,9 @@ public class ExpMemberController {
 
 	@Autowired
 	private ExpMemberRepository expMemberRepository;
+
+	@Autowired
+	private ExperienceRepository experienceRepository;
 
 	@RequestMapping(value="/applylist/{idx}", method=RequestMethod.GET)
 	public String getExpMembers(@PathVariable("idx") int idx, Model model) {
@@ -47,9 +52,22 @@ public class ExpMemberController {
 	}
 
 	@RequestMapping(value="/api/check/{idx}", method=RequestMethod.GET)
-	public ResponseEntity<String> checkCntExpMember(@PathVariable("idx") int idx) {
-		
-		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	public ResponseEntity<Boolean> checkCntExpMember(@PathVariable("idx") int idx) {
+		Experience exp = experienceRepository.findById(idx).get();
+		boolean checkFlag = false;
+		int recrutCnt = exp.getRecrutCnt();
+		int appliCnt = exp.getAppliCnt();
+		int resultCnt = recrutCnt - appliCnt;
+
+		if (resultCnt > 0) {
+			// true : 신청 가능
+			checkFlag = true;
+		} else {
+			// false : 신청 불가능
+			checkFlag = false;
+		}
+
+		return new ResponseEntity<>(checkFlag, HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/api/register", method=RequestMethod.POST)

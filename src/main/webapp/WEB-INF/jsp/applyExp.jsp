@@ -26,6 +26,9 @@
 							<h4>${cat } / ${exp.prdName }</h4>
 							<input type="hidden" id="experienceNo" name="experienceNo" value="${exp.experienceNo }"/>
 							<div class="row">
+							<input type="hidden" id="recrutCnt" name="recrutCnt" value="${exp.recrutCnt }"/>
+							<input type="hidden" id="appliCnt" name="appliCnt" value="${exp.appliCnt }"/>
+
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
 										<strong>체험단 타입</strong> <input type="text" class="form-control"

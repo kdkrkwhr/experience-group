@@ -5,7 +5,7 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 <link rel="stylesheet" href="/resources/css/main.css">
-<script src="/resources/js/use/noticeRegister.js"></script>
+<script src="/resources/js/use/expRegister.js"></script>
 <!-- ##### Catagory ##### -->
 <c:if test="${empty sessionAdmin }">
 <script>
