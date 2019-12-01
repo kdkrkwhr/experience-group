@@ -3,6 +3,8 @@ package com.example.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +104,7 @@ public class ExpMemberController {
 	public ResponseEntity<String> cntExpMember(@PathVariable("idx") int idx) {
 
 		try {
+
 			expMemberRepository.expCntUp(idx);
 		} catch (Exception e) {
 
@@ -110,10 +113,9 @@ public class ExpMemberController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/api/excel/{idx}", method=RequestMethod.POST)
-	public ResponseEntity<String> memberExcel(@PathVariable("idx") int idx) throws Exception {
+	@RequestMapping(value="/api/excel/{idx}", method=RequestMethod.GET)
+	public void memberExcel(@PathVariable("idx") int idx, HttpServletResponse res) throws Exception {
 		List<ExpMember> memberList = expMemberRepository.expList(idx);
-		MemberExcelView.writeNoticeListToFile("member.xlsx", memberList);
-		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+		MemberExcelView.writeNoticeListToFile("Member.xlsx", memberList, res);
 	}
 }

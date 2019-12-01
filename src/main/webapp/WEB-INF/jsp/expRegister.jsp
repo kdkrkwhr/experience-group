@@ -46,7 +46,7 @@ location.href = '/';
 								</div>
 								<div class="col-12 col-lg-12">
 									<div class="form-group">
-										<strong>모집 인원</strong> <input type="text" class="form-control"
+										<strong>모집 인원</strong> <input type="number" class="form-control"
 											name="recrutCnt" id="recrutCnt" placeholder="모집 인원"
 											value="${exp.recrutCnt }">
 									</div>

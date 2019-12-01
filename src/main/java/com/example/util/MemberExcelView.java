@@ -4,21 +4,24 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import com.example.model.ExpMember;
-import com.example.model.Notice;
 
 public class MemberExcelView {
 
 	// 신청자 명단 Excel 다운로드 기능 Class
-	public static void writeNoticeListToFile(String fileName, List<ExpMember> expMemberList) throws Exception {
+	public static void writeNoticeListToFile(String fileName, List<ExpMember> expMemberList, HttpServletResponse res) throws Exception {
 		Workbook workbook = null;
 
 		if (fileName.endsWith("xlsx")) {
@@ -84,8 +87,17 @@ public class MemberExcelView {
 
 		} while (iterator.hasNext());
 
+		res.setHeader("Content-Disposition", "attachment;filename=MemberList.xlsx");
+		res.setContentType("application/vnd.ms-excel");
+
+		OutputStream out = new BufferedOutputStream(res.getOutputStream());
+		workbook.write(out);
+		out.flush();
+		out.close();
+
 		FileOutputStream fos = new FileOutputStream(fileName);
 		workbook.write(fos);
 		fos.close();
+
 	}
 }

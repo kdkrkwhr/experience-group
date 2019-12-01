@@ -89,8 +89,8 @@ location.href = '/';
 			<div class="row">
 				<div class="col-2">
 					<div class="load-more">
-						<span class="btn clever-btn" onclick="excelDownload()">엑셀
-							다운로드</span>
+						<a class="btn clever-btn" href="/servlet/member/api/excel/${idx }">엑셀
+							다운로드</a>
 					</div>
 				</div>
 			</div>
@@ -99,9 +99,6 @@ location.href = '/';
 	</div>
 </div>
 <!-- ##### Popular Course Area End ##### -->
-
-
-
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>
 <!-- ##### Footer Area End ##### -->
