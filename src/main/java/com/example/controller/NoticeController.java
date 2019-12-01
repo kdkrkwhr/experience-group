@@ -197,9 +197,9 @@ public class NoticeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("msg", e.getMessage());
-			return "forward:/notice/noticeList";
+			return "redirect:/servlet/notice/list?sort=noticeNo,desc&size=5";
 		}
-		return "forward:/notice/noticeList";
+		return "redirect:/servlet/notice/list?sort=noticeNo,desc&size=5";
 	}
 	
 	@RequestMapping(value = "/fileDownload", method = RequestMethod.GET)
