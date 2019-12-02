@@ -5,7 +5,7 @@
 	<div class="top-footer-area">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
+				<div class="col-12" style="background-image: url('/resources/img/core-img/footer-logo.png');">
 					<!-- Footer Logo -->
 					<div class="footer-logo">
 					</div>

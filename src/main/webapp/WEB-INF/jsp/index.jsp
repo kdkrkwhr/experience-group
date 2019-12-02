@@ -90,8 +90,8 @@ function delMenu(idx){
 									<i class="fa fa-star" aria-hidden="true"></i> ${board.regDate }
 								</div>
 							</div>
-								<div class="seat-rating h-100 d-flex align-items-center"
-									style="cursor: pointer;">
+							<div class="seat-rating h-100 d-flex align-items-center"
+								style="cursor: pointer;">
 								<c:if test="${board.recrutCnt - board.appliCnt > 0}">
 									<div onclick="javascript:goMenu(${board.experienceNo})">
 										<span>체험단 신청하기</span>

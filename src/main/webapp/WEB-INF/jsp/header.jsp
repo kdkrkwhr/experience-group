@@ -41,7 +41,6 @@
 			<div class="classy-nav-container breakpoint-off">
 				<!-- Menu -->
 				<nav class="classy-navbar justify-content-between" id="cleverNav">
-
 					<!-- Logo -->
 					<a class="nav-brand" href="/"><img
 						src="/resources/img/core-img/logo.png"></a>
@@ -65,7 +64,7 @@
 						<div class="classynav">
 							<ul>
 								<li><a href="/servlet/experience/board">체험단 신청하기</a></li>
-								<li style="margin-right: 170px;"><a href="/servlet/notice/list?sort=noticeNo,desc&size=5">공지사항</a></li>
+								<li><a href="/servlet/notice/list?sort=noticeNo,desc&size=5">공지사항</a></li>
 							</ul>
 						</div>
 					</div>

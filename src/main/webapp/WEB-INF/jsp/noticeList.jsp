@@ -26,7 +26,6 @@
 		<div class="wrap-table100" style="height: 470px; overflow-y: auto">
 			<div class="table">
 				<div class="row-t header">
-					<div class="cell">번호</div>
 					<div class="cell">제목</div>
 					<div class="cell">등록일</div>
 					<c:if test= "${not empty sessionAdmin }">
@@ -40,10 +39,6 @@
 				</c:if>
 				<c:forEach var="list" items="${list.content }">
 					<div class="row-t">
-						<div class="cell" data-title="번호"<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
-								<c:if test= "${empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>>
-							<span><strong>${list.noticeNo }</strong></span>
-						</div>
 						<div class="cell" data-title="제목"<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>
 								<c:if test= "${empty sessionAdmin }"> onclick="noticeViewAction(${list.noticeNo })"</c:if>><strong>[공지] ${list.subject }</strong></div>
 						<div class="cell" data-title="등록일"<c:if test= "${not empty sessionAdmin }"> onclick="noticeAdminViewAction(${list.noticeNo })"</c:if>

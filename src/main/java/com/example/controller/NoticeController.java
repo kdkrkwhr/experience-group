@@ -1,7 +1,8 @@
 package com.example.controller;
 
 import java.io.File;
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -173,8 +174,11 @@ public class NoticeController {
 			String fileFullPath = uploadPath + File.separator + file.getOriginalFilename();
 			String subject = request.getParameter("subject");
 			String content = request.getParameter("content");
-			LocalDateTime date = LocalDateTime.now();
-			
+
+			SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd / HH:mm:ss");
+			Date dateTime = new Date();
+			String date = format.format(dateTime);
+
 			File folder = new File(uploadPath);
 			if (!folder.exists()) {
 				folder.mkdir();
@@ -189,7 +193,7 @@ public class NoticeController {
 					Notice.builder()
 					.subject(subject)
 					.content(content)
-					.regDate(date.toString())
+					.regDate(date)
 					.filePath(fileFullPath)
 					.build());
 
