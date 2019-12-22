@@ -36,8 +36,9 @@ public class MemberExcelView {
 
 		int rowIndex = 0;
 		int excelname = 0;
+
 		do {
-			ExpMember expMember = iterator.next();
+			
 			Row row = sheet.createRow(rowIndex++);
 
 			if (excelname == 0) {
@@ -59,7 +60,7 @@ public class MemberExcelView {
 				excelname++;
 
 			} else {
-
+				ExpMember expMember = iterator.next();
 				Cell cell0 = row.createCell(0);
 				cell0.setCellValue(expMember.getName());
 				Cell cell1 = row.createCell(1);
