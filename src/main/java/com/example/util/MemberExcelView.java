@@ -22,6 +22,7 @@ public class MemberExcelView {
 
 	// 신청자 명단 Excel 다운로드 기능 Class
 	public static void writeNoticeListToFile(String fileName, List<ExpMember> expMemberList, HttpServletResponse res) throws Exception {
+
 		Workbook workbook = null;
 
 		if (fileName.endsWith("xlsx")) {
@@ -38,7 +39,7 @@ public class MemberExcelView {
 		int excelname = 0;
 
 		do {
-			
+
 			Row row = sheet.createRow(rowIndex++);
 
 			if (excelname == 0) {
@@ -60,7 +61,9 @@ public class MemberExcelView {
 				excelname++;
 
 			} else {
+
 				ExpMember expMember = iterator.next();
+
 				Cell cell0 = row.createCell(0);
 				cell0.setCellValue(expMember.getName());
 				Cell cell1 = row.createCell(1);
@@ -99,6 +102,5 @@ public class MemberExcelView {
 		FileOutputStream fos = new FileOutputStream(fileName);
 		workbook.write(fos);
 		fos.close();
-
 	}
 }
